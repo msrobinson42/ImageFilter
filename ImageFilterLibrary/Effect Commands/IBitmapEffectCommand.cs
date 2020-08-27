@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ImageFilterLibrary.EffectCommands
 {
-    interface IBitmapEffectCommand
+    public interface IBitmapEffectCommand
     {
         public Bitmap Execute();
         public Bitmap Unexecute();

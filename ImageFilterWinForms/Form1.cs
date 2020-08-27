@@ -9,12 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ImageFilterLibrary.EffectCommands;
 
 namespace ImageFilterWinForms
 {
     public partial class ImageFilterView : Form
     {
         private Bitmap _image;
+        private Stack<IBitmapEffectCommand> commandStack = new Stack<IBitmapEffectCommand>();
 
         public ImageFilterView()
         {
@@ -26,6 +28,8 @@ namespace ImageFilterWinForms
         {
             var command = new Rotate90ClockwiseCommand(_image);
             var result = command.Execute();
+
+            commandStack.Push(command);
             RefreshImage(result);
         }
 
