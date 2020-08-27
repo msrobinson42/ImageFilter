@@ -24,6 +24,20 @@ namespace ImageFilterWinForms
             _image = new Bitmap(picMain.Image);
         }
 
+        private void UndoClick(object sender, EventArgs e)
+        {
+            try
+            {
+                var result = commandStack.UndoPop();
+
+                RefreshImage(result);
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("You have not performed any actions yet.", "Empty Stack");
+            }
+        }
+
         private void Rotate(object sender, EventArgs e)
         {
             var command = new Rotate90ClockwiseCommand(_image);
@@ -64,7 +78,7 @@ namespace ImageFilterWinForms
                     }
                     catch (ArgumentException)
                     {
-                        MessageBox.Show("Please submit a valid image file type.");
+                        MessageBox.Show("Please submit a valid image file type.", "File not found");
                     }
                 }
             }
