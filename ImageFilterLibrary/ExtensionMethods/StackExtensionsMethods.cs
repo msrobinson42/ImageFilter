@@ -15,7 +15,7 @@ namespace ImageFilterWinForms
             var command = @this.Peek();
             @this.Pop();
 
-            return command.Execute();
+            return command.Unexecute();
         }
     }
 }
