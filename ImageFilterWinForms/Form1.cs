@@ -38,7 +38,25 @@ namespace ImageFilterWinForms
             }
         }
 
-        private void Rotate(object sender, EventArgs e)
+        private void RepeatClick(object sender, EventArgs e)
+        {
+            try
+            {
+                var command = commandStack.Peek();
+                var result = command.Execute();
+
+                //If we want command to be added to stack.
+                commandStack.Push(command);
+
+                RefreshImage(result);
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("You have not performed any actions yet.", "Empty Stack");
+            }
+        }
+
+        private void Rotate90CW(object sender, EventArgs e)
         {
             var command = new Rotate90ClockwiseCommand(_image);
             var result = command.Execute();
@@ -47,9 +65,7 @@ namespace ImageFilterWinForms
             RefreshImage(result);
         }
 
-        //
-        // not sure if I should mutate the image or create a new Bitmap after every effect.
-        //
+        // not sure if we should mutate the image or create a new Bitmap after every effect.
         private void RefreshImage(Bitmap image)
         {
             _image = image;

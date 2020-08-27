@@ -45,6 +45,7 @@ namespace ImageFilterWinForms
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.repeatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotateStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clockwiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -140,7 +141,8 @@ namespace ImageFilterWinForms
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoToolStripMenuItem,
             this.redoToolStripMenuItem,
-            this.toolStripSeparator3});
+            this.toolStripSeparator3,
+            this.repeatToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "&Edit";
@@ -149,7 +151,7 @@ namespace ImageFilterWinForms
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.UndoClick);
             // 
@@ -157,13 +159,20 @@ namespace ImageFilterWinForms
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.redoToolStripMenuItem.Text = "&Redo";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(169, 6);
+            // 
+            // repeatToolStripMenuItem
+            // 
+            this.repeatToolStripMenuItem.Name = "repeatToolStripMenuItem";
+            this.repeatToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.repeatToolStripMenuItem.Text = "Repeat Last Action";
+            this.repeatToolStripMenuItem.Click += new System.EventHandler(this.RepeatClick);
             // 
             // toolsToolStripMenuItem
             // 
@@ -188,7 +197,7 @@ namespace ImageFilterWinForms
             this.clockwiseToolStripMenuItem.Name = "clockwiseToolStripMenuItem";
             this.clockwiseToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.clockwiseToolStripMenuItem.Text = "90° Clockwise";
-            this.clockwiseToolStripMenuItem.Click += new System.EventHandler(this.Rotate);
+            this.clockwiseToolStripMenuItem.Click += new System.EventHandler(this.Rotate90CW);
             // 
             // customizeToolStripMenuItem
             // 
@@ -239,6 +248,7 @@ namespace ImageFilterWinForms
         private ToolStripMenuItem optionsToolStripMenuItem;
         private ToolStripMenuItem rotateStripMenuItem;
         private ToolStripMenuItem clockwiseToolStripMenuItem;
+        private ToolStripMenuItem repeatToolStripMenuItem;
     }
 }
 
