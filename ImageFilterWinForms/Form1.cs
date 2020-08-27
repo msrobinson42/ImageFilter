@@ -13,9 +13,18 @@ namespace ImageFilterWinForms
 {
     public partial class ImageFilterView : Form
     {
+        private Bitmap _image;
         public ImageFilterView()
         {
             InitializeComponent();
+            _image = new Bitmap(picMain.Image);
+        }
+
+        private void Rotate(object sender, EventArgs e)
+        {
+            var image = picMain.Image;
+            image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            picMain.Image = image;
         }
 
         private void OpenImageClick(object sender, EventArgs e)
@@ -35,8 +44,8 @@ namespace ImageFilterWinForms
                     //Create image and display it.
                     try
                     {
-                        var image = new Bitmap(filePath);
-                        picMain.Image = image;
+                        _image = new Bitmap(filePath);
+                        picMain.Image = _image;
                     }
                     catch (ArgumentException)
                     {

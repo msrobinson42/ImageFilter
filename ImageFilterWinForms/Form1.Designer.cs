@@ -187,6 +187,7 @@ namespace ImageFilterWinForms
             this.clockwiseToolStripMenuItem.Name = "clockwiseToolStripMenuItem";
             this.clockwiseToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.clockwiseToolStripMenuItem.Text = "90° Clockwise";
+            this.clockwiseToolStripMenuItem.Click += new System.EventHandler(this.Rotate);
             // 
             // customizeToolStripMenuItem
             // 
