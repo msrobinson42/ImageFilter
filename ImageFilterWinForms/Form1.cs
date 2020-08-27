@@ -59,7 +59,8 @@ namespace ImageFilterWinForms
 
         private void Rotate90CW(object sender, EventArgs e)
         {
-            var command = new Rotate90ClockwiseCommand(_image);
+            // var command = new Rotate90ClockwiseCommand(_image);
+            var command = new Rotate90CounterClockwiseCommand(_image);
             var result = command.Execute();
 
             _commandStack.Push(command);
