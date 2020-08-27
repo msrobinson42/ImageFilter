@@ -1,4 +1,5 @@
 ﻿using System;
+using ImageFilterLibrary.Effect_Commands;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace ImageFilterWinForms
     public partial class ImageFilterView : Form
     {
         private Bitmap _image;
+
         public ImageFilterView()
         {
             InitializeComponent();
@@ -22,9 +24,18 @@ namespace ImageFilterWinForms
 
         private void Rotate(object sender, EventArgs e)
         {
-            var image = picMain.Image;
-            image.RotateFlip(RotateFlipType.Rotate90FlipNone);
-            picMain.Image = image;
+            var command = new Rotate90ClockwiseCommand(_image);
+            var result = command.Execute();
+            RefreshImage(result);
+        }
+
+        //
+        // not sure if I should mutate the image or create a new Bitmap after every effect.
+        //
+        private void RefreshImage(Bitmap image)
+        {
+            _image = image;
+            picMain.Image = _image;
         }
 
         private void OpenImageClick(object sender, EventArgs e)

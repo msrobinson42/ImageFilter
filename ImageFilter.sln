@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageFilterWinForms", "ImageFilterWinForms\ImageFilterWinForms.csproj", "{F90731FD-B4C0-4477-ACEF-961DF1D19FF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageFilterWinForms", "ImageFilterWinForms\ImageFilterWinForms.csproj", "{F90731FD-B4C0-4477-ACEF-961DF1D19FF7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageFilterLibrary", "ImageFilterLibrary\ImageFilterLibrary.csproj", "{AD3B0150-9330-491D-BD72-433087181AB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F90731FD-B4C0-4477-ACEF-961DF1D19FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F90731FD-B4C0-4477-ACEF-961DF1D19FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F90731FD-B4C0-4477-ACEF-961DF1D19FF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD3B0150-9330-491D-BD72-433087181AB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD3B0150-9330-491D-BD72-433087181AB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD3B0150-9330-491D-BD72-433087181AB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD3B0150-9330-491D-BD72-433087181AB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

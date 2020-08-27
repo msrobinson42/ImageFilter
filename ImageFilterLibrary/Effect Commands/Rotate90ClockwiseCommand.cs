@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ImageFilterLibrary.Effect_Commands
 {
-    class Rotate90ClockwiseCommand : IBitmapEffectCommand
+    public class Rotate90ClockwiseCommand : IBitmapEffectCommand
     {
         private readonly Bitmap _image;
 
