@@ -20,9 +20,6 @@ namespace ImageFilterWinForms
 
         private void OpenImageClick(object sender, EventArgs e)
         {
-            var fileContent = string.Empty;
-            var filePath = string.Empty;
-
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\";
@@ -33,13 +30,20 @@ namespace ImageFilterWinForms
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     //Get the path of specified file
-                    filePath = openFileDialog.FileName;
+                    var filePath = openFileDialog.FileName;
 
                     //Read the contents of the file into a stream
-                    picMain.Image = new Bitmap(filePath);
+                    try
+                    {
+                        var image = new Bitmap(filePath);
+                        picMain.Image = image;
+                    }
+                    catch (ArgumentException)
+                    {
+                        MessageBox.Show("Please submit a valid image file type.");
+                    }
                 }
             }
         }
-
     }
 }

@@ -61,7 +61,7 @@ namespace ImageFilterWinForms
             this.picMain.Image = ((System.Drawing.Image)(resources.GetObject("picMain.Image")));
             this.picMain.Location = new System.Drawing.Point(0, 27);
             this.picMain.Name = "picMain";
-            this.picMain.Size = new System.Drawing.Size(843, 476);
+            this.picMain.Size = new System.Drawing.Size(850, 436);
             this.picMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picMain.TabIndex = 0;
             this.picMain.TabStop = false;
@@ -74,7 +74,7 @@ namespace ImageFilterWinForms
             this.toolsToolStripMenuItem});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(845, 24);
+            this.mnuMain.Size = new System.Drawing.Size(850, 24);
             this.mnuMain.TabIndex = 1;
             this.mnuMain.Text = "Main Menu";
             // 
@@ -186,7 +186,7 @@ namespace ImageFilterWinForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 502);
+            this.ClientSize = new System.Drawing.Size(850, 461);
             this.Controls.Add(this.mnuMain);
             this.Controls.Add(this.picMain);
             this.Name = "imageFilterView";
