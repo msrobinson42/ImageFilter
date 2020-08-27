@@ -16,19 +16,20 @@ namespace ImageFilterWinForms
     public partial class ImageFilterView : Form
     {
         private Bitmap _image;
-        private Stack<IBitmapEffectCommand> commandStack = new Stack<IBitmapEffectCommand>();
+        private Stack<IBitmapEffectCommand> _commandStack;
 
-        public ImageFilterView()
+        public ImageFilterView(Stack<IBitmapEffectCommand> stack)
         {
             InitializeComponent();
             _image = new Bitmap(picMain.Image);
+            _commandStack = stack;
         }
 
         private void UndoClick(object sender, EventArgs e)
         {
             try
             {
-                var result = commandStack.UndoPop();
+                var result = _commandStack.UndoPop();
 
                 RefreshImage(result);
             }
@@ -42,11 +43,11 @@ namespace ImageFilterWinForms
         {
             try
             {
-                var command = commandStack.Peek();
+                var command = _commandStack.Peek();
                 var result = command.Execute();
 
                 //If we want command to be added to stack.
-                commandStack.Push(command);
+                _commandStack.Push(command);
 
                 RefreshImage(result);
             }
@@ -61,7 +62,7 @@ namespace ImageFilterWinForms
             var command = new Rotate90ClockwiseCommand(_image);
             var result = command.Execute();
 
-            commandStack.Push(command);
+            _commandStack.Push(command);
             RefreshImage(result);
         }
 

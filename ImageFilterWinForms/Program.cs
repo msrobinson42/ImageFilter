@@ -1,3 +1,4 @@
+using ImageFilterLibrary.EffectCommands;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,10 +16,11 @@ namespace ImageFilterWinForms
         [STAThread]
         static void Main()
         {
+            var stack = new Stack<IBitmapEffectCommand>();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ImageFilterView());
+            Application.Run(new ImageFilterView(stack));
         }
     }
 }
