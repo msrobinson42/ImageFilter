@@ -1,8 +1,9 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace ImageFilterWinForms
 {
-    partial class imageFilterView
+    partial class ImageFilterView
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,7 +31,7 @@ namespace ImageFilterWinForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(imageFilterView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImageFilterView));
             this.picMain = new System.Windows.Forms.PictureBox();
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,9 +46,10 @@ namespace ImageFilterWinForms
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotateStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clockwiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageOpenDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
@@ -131,6 +133,7 @@ namespace ImageFilterWinForms
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitClick);
             // 
             // editToolStripMenuItem
             // 
@@ -164,11 +167,26 @@ namespace ImageFilterWinForms
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rotateStripMenuItem,
             this.customizeToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
+            // 
+            // rotateStripMenuItem
+            // 
+            this.rotateStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clockwiseToolStripMenuItem});
+            this.rotateStripMenuItem.Name = "rotateStripMenuItem";
+            this.rotateStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.rotateStripMenuItem.Text = "Rotate";
+            // 
+            // clockwiseToolStripMenuItem
+            // 
+            this.clockwiseToolStripMenuItem.Name = "clockwiseToolStripMenuItem";
+            this.clockwiseToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.clockwiseToolStripMenuItem.Text = "90° Clockwise";
             // 
             // customizeToolStripMenuItem
             // 
@@ -182,14 +200,14 @@ namespace ImageFilterWinForms
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
-            // imageFilterView
+            // ImageFilterView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 461);
             this.Controls.Add(this.mnuMain);
             this.Controls.Add(this.picMain);
-            this.Name = "imageFilterView";
+            this.Name = "ImageFilterView";
             this.Text = "Image Filter";
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).EndInit();
             this.mnuMain.ResumeLayout(false);
@@ -217,7 +235,8 @@ namespace ImageFilterWinForms
         private ToolStripMenuItem toolsToolStripMenuItem;
         private ToolStripMenuItem customizeToolStripMenuItem;
         private ToolStripMenuItem optionsToolStripMenuItem;
-        private OpenFileDialog imageOpenDialog;
+        private ToolStripMenuItem rotateStripMenuItem;
+        private ToolStripMenuItem clockwiseToolStripMenuItem;
     }
 }
 

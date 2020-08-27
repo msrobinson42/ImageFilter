@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace ImageFilterWinForms
 {
-    public partial class imageFilterView : Form
+    public partial class ImageFilterView : Form
     {
-        public imageFilterView()
+        public ImageFilterView()
         {
             InitializeComponent();
         }
@@ -22,7 +22,7 @@ namespace ImageFilterWinForms
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.InitialDirectory = @"c:\";
                 openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
@@ -32,7 +32,7 @@ namespace ImageFilterWinForms
                     //Get the path of specified file
                     var filePath = openFileDialog.FileName;
 
-                    //Read the contents of the file into a stream
+                    //Create image and display it.
                     try
                     {
                         var image = new Bitmap(filePath);
@@ -44,6 +44,11 @@ namespace ImageFilterWinForms
                     }
                 }
             }
+        }
+
+        private void ExitClick(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
