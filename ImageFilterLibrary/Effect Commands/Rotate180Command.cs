@@ -17,12 +17,15 @@ namespace ImageFilterLibrary.Effect_Commands
         }
         public Bitmap Execute()
         {
-            throw new NotImplementedException();
+            _image.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            return _image;
         }
 
         public Bitmap Unexecute()
         {
-            throw new NotImplementedException();
+            _image.RotateFlip(RotateFlipType.Rotate180FlipNone);
+
+            return _image;
         }
     }
 }
