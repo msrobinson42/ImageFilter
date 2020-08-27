@@ -43,13 +43,7 @@ namespace ImageFilterWinForms
         {
             try
             {
-                var command = _commandStack.Peek();
-                var result = command.Execute();
-
-                //If we want command to be added to stack.
-                _commandStack.Push(command);
-
-                RefreshImage(result);
+                ExecuteCommand(_commandStack.Peek());
             }
             catch (InvalidOperationException)
             {
@@ -59,10 +53,19 @@ namespace ImageFilterWinForms
 
         private void Rotate90CW(object sender, EventArgs e)
         {
-            var command = new Rotate90ClockwiseCommand(_image);
-            var result = command.Execute();
+            ExecuteCommand(new Rotate90ClockwiseCommand(_image));
+        }
 
-            _commandStack.Push(command);
+        private void Rotate180(object sender, EventArgs e)
+        {
+            ExecuteCommand(new Rotate180Command(_image));
+        }
+
+        private void ExecuteCommand(IBitmapEffectCommand cmd)
+        {
+            var result = cmd.Execute();
+
+            _commandStack.Push(cmd);
             RefreshImage(result);
         }
 

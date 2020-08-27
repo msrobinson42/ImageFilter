@@ -49,6 +49,7 @@ namespace ImageFilterWinForms
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotateStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clockwiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotate180ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
@@ -181,13 +182,14 @@ namespace ImageFilterWinForms
             this.customizeToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // rotateStripMenuItem
             // 
             this.rotateStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clockwiseToolStripMenuItem});
+            this.clockwiseToolStripMenuItem,
+            this.rotate180ToolStripMenuItem});
             this.rotateStripMenuItem.Name = "rotateStripMenuItem";
             this.rotateStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.rotateStripMenuItem.Text = "Rotate";
@@ -198,6 +200,13 @@ namespace ImageFilterWinForms
             this.clockwiseToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.clockwiseToolStripMenuItem.Text = "90° Clockwise";
             this.clockwiseToolStripMenuItem.Click += new System.EventHandler(this.Rotate90CW);
+            // 
+            // rotate180ToolStripMenuItem
+            // 
+            this.rotate180ToolStripMenuItem.Name = "rotate180ToolStripMenuItem";
+            this.rotate180ToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.rotate180ToolStripMenuItem.Text = "Rotate 180°";
+            this.rotate180ToolStripMenuItem.Click += new System.EventHandler(this.Rotate180);
             // 
             // customizeToolStripMenuItem
             // 
@@ -249,6 +258,7 @@ namespace ImageFilterWinForms
         private ToolStripMenuItem rotateStripMenuItem;
         private ToolStripMenuItem clockwiseToolStripMenuItem;
         private ToolStripMenuItem repeatToolStripMenuItem;
+        private ToolStripMenuItem rotate180ToolStripMenuItem;
     }
 }
 
