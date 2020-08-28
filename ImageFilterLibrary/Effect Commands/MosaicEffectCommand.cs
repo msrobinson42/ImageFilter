@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ImageFilterLibrary.Effect_Commands
 {
@@ -81,9 +82,12 @@ namespace ImageFilterLibrary.Effect_Commands
             int xPointer = 0, yPointer = 0;
             var sectionsCount = (image.Width / _radius) * (image.Height / _radius);
 
+            //Func<Bitmap, int, int, int[]> findAverages = (image, xPointer, yPointer) => FindSectionAverageRGB;
+
             for (int i = 0; i < sectionsCount; i++)
             {
-                var rgbAvg = FindSectionAverageRGB(image, xPointer, yPointer);
+                //var rgbAvg = await Task.Run(() => FindSectionAverageRGB(image, xPointer, yPointer));
+                var rgbAvg = (FindSectionAverageRGB(image, xPointer, yPointer));
                 image = ColorMosaicSection(image, rgbAvg[0], rgbAvg[1], rgbAvg[2], xPointer, yPointer);
 
                 xPointer = ++xPointer % (_image.Width / _radius);
