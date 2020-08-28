@@ -29,6 +29,7 @@ namespace ImageFilterWinForms
         {
             try
             {
+                _image.Dispose();
                 var result = _commandStack.UndoPop();
 
                 RefreshImage(result);
@@ -74,10 +75,8 @@ namespace ImageFilterWinForms
             RefreshImage(result);
         }
 
-        // not sure if we should mutate the image or create a new Bitmap after every effect.
         private void RefreshImage(Bitmap image)
         {
-            //MessageBox.Show(image.Equals(_image).ToString());
             _image = image;
             picMain.Image = _image;
         }
