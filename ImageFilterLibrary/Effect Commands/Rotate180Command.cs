@@ -17,15 +17,21 @@ namespace ImageFilterLibrary.Effect_Commands
         }
         public Bitmap Execute()
         {
-            _image.RotateFlip(RotateFlipType.Rotate180FlipNone);
-            return _image;
+            var newImage = new Bitmap(_image);
+
+            newImage.RotateFlip(RotateFlipType.Rotate180FlipNone);
+
+            return newImage;
         }
 
         public Bitmap Unexecute()
         {
-            _image.RotateFlip(RotateFlipType.Rotate180FlipNone);
-
             return _image;
+        }
+
+        public void Dispose()
+        {
+            _image.Dispose();
         }
     }
 }

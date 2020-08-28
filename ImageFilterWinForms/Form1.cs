@@ -43,7 +43,12 @@ namespace ImageFilterWinForms
         {
             try
             {
-                ExecuteCommand(_commandStack.Peek());
+                var oldCommand = _commandStack.Peek();
+                var type = oldCommand.GetType();
+
+                var command = (IBitmapEffectCommand)Activator.CreateInstance(type, _image);
+
+                ExecuteCommand(command);
             }
             catch (InvalidOperationException)
             {
@@ -72,6 +77,7 @@ namespace ImageFilterWinForms
         // not sure if we should mutate the image or create a new Bitmap after every effect.
         private void RefreshImage(Bitmap image)
         {
+            //MessageBox.Show(image.Equals(_image).ToString());
             _image = image;
             picMain.Image = _image;
         }
