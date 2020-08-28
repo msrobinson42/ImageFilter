@@ -67,6 +67,11 @@ namespace ImageFilterWinForms
             ExecuteCommand(new Rotate180Command(_image));
         }
 
+        private void MosaicClick(object sender, EventArgs e)
+        {
+            ExecuteCommand(new MosaicEffectCommand(_image, 250));
+        }
+
         private void ExecuteCommand(IBitmapEffectCommand cmd)
         {
             var result = cmd.Execute();
