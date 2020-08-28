@@ -17,6 +17,12 @@ namespace ImageFilterLibrary.Effect_Commands
             _radius = radius;
         }
 
+        public MosaicEffectCommand(Bitmap image)
+            : this(image, 100)
+        {
+
+        }
+
         public Bitmap Execute()
         {
             return LoopThroughSections();

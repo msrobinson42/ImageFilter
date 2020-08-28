@@ -112,6 +112,16 @@ namespace ImageFilterWinForms
                     }
                 }
             }
+
+            ResetStack();
+        }
+
+        private void ResetStack()
+        {
+            foreach (var item in _commandStack)
+                item.Dispose();
+
+            _commandStack.Clear();
         }
 
         private void ExitClick(object sender, EventArgs e)
