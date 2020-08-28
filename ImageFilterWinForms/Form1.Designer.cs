@@ -50,6 +50,8 @@ namespace ImageFilterWinForms
             this.rotate180ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pixelToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.mosaicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
@@ -163,7 +165,8 @@ namespace ImageFilterWinForms
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rotateStripMenuItem,
             this.customizeToolStripMenuItem,
-            this.optionsToolStripMenuItem});
+            this.optionsToolStripMenuItem,
+            this.pixelToolStripMenu});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
@@ -203,6 +206,20 @@ namespace ImageFilterWinForms
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
+            // pixelToolStripMenu
+            // 
+            this.pixelToolStripMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mosaicToolStripMenuItem});
+            this.pixelToolStripMenu.Name = "pixelToolStripMenu";
+            this.pixelToolStripMenu.Size = new System.Drawing.Size(130, 22);
+            this.pixelToolStripMenu.Text = "Pixelate";
+            // 
+            // mosaicToolStripMenuItem
+            // 
+            this.mosaicToolStripMenuItem.Name = "mosaicToolStripMenuItem";
+            this.mosaicToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.mosaicToolStripMenuItem.Text = "Mosaic";
+            // 
             // ImageFilterView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -240,6 +257,8 @@ namespace ImageFilterWinForms
         private ToolStripMenuItem clockwiseToolStripMenuItem;
         private ToolStripMenuItem repeatToolStripMenuItem;
         private ToolStripMenuItem rotate180ToolStripMenuItem;
+        private ToolStripMenuItem pixelToolStripMenu;
+        private ToolStripMenuItem mosaicToolStripMenuItem;
     }
 }
 
