@@ -29,7 +29,9 @@ namespace ImageFilterWinForms
         {
             try
             {
-                _image.Dispose();
+                if(_commandStack.Count > 0)
+                    _image.Dispose();
+
                 var result = _commandStack.UndoPop();
 
                 RefreshImage(result);
@@ -45,11 +47,15 @@ namespace ImageFilterWinForms
             try
             {
                 var oldCommand = _commandStack.Peek();
-                var type = oldCommand.GetType();
+                var newCommand = oldCommand.NewCommandFromCopy(_image);
 
-                var command = (IBitmapEffectCommand)Activator.CreateInstance(type, _image);
+                ExecuteCommand(newCommand);
 
-                ExecuteCommand(command);
+                //var type = oldCommand.GetType();
+
+                //var command = (IBitmapEffectCommand)Activator.CreateInstance(type, _image);
+
+                //ExecuteCommand(command);
             }
             catch (InvalidOperationException)
             {

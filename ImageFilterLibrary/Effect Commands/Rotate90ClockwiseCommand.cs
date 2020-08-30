@@ -17,10 +17,9 @@ namespace ImageFilterLibrary.Effect_Commands
 
         public Bitmap Execute()
         {
-            Bitmap newImage = new Bitmap(_image);
+            var newImage = new Bitmap(_image);
 
             newImage.RotateFlip(RotateFlipType.Rotate90FlipNone);
-
 
             return newImage;
         }
@@ -28,6 +27,11 @@ namespace ImageFilterLibrary.Effect_Commands
         public Bitmap Unexecute()
         {
             return _image;
+        }
+
+        IBitmapEffectCommand IBitmapEffectCommand.NewCommandFromCopy(Bitmap image)
+        {
+            return new Rotate90ClockwiseCommand(image);
         }
 
         public void Dispose()

@@ -29,6 +29,11 @@ namespace ImageFilterLibrary.Effect_Commands
             return _image;
         }
 
+        public IBitmapEffectCommand NewCommandFromCopy(Bitmap image)
+        {
+            return new Rotate180Command(image);
+        }
+
         public void Dispose()
         {
             _image.Dispose();

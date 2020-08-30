@@ -100,9 +100,15 @@ namespace ImageFilterLibrary.Effect_Commands
                 return image;
         }
 
+        public IBitmapEffectCommand NewCommandFromCopy(Bitmap image)
+        { 
+            return new MosaicEffectCommand(image, _radius);
+        }
+
         public void Dispose()
         {
             _image.Dispose();
         }
+
     }
 }

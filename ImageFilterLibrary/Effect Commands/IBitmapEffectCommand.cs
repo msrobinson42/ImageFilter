@@ -9,5 +9,6 @@ namespace ImageFilterLibrary.EffectCommands
     {
         public Bitmap Execute();
         public Bitmap Unexecute();
+        public IBitmapEffectCommand NewCommandFromCopy(Bitmap image);
     }
 }
