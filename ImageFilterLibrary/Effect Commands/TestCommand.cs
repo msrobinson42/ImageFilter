@@ -10,7 +10,7 @@ using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ImageFilterLibrary.Effect_Commands
+namespace ImageFilterLibrary.EffectCommands
 {
     public class TestCommand : IBitmapEffectCommand
     {

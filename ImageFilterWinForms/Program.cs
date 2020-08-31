@@ -18,14 +18,12 @@ namespace ImageFilterWinForms
         [STAThread]
         static void Main()
         {
-            var imageProcessorFactory = new ImageProcessorFactory();
-            var bitmapFactory = new BitmapFactory();
             var stack = new Stack<IBitmapEffectCommand>();
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ImageFilterView(stack, imageProcessorFactory, bitmapFactory));
+            Application.Run(new ImageFilterView(stack));
         }
     }
 }

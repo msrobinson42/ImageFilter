@@ -4,11 +4,6 @@ namespace ImageFilterLibrary.BitmapFactories
 {
     public class BitmapFactory : IBitmapFactory
     {
-        public Bitmap GetInstance(Bitmap image)
-        {
-            return new Bitmap(image);
-        }
-
         public Bitmap GetInstance(Image image)
         {
             return new Bitmap(image);

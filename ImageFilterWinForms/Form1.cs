@@ -1,17 +1,8 @@
 ﻿using System;
-using ImageFilterLibrary.Effect_Commands;
 using System.Collections.Generic;
-using ImageProcessor;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ImageFilterLibrary.EffectCommands;
-using ImageFilterLibrary.ImageProcessorFactories;
 using ImageFilterLibrary.BitmapFactories;
 using ImageFilterLibrary.Facades;
 
@@ -19,18 +10,22 @@ namespace ImageFilterWinForms
 {
     public partial class ImageFilterView : Form
     {
-        private readonly IImageProcessorFactory _processingFactory;
+        private readonly IBitmapFactory _bitmapFactory;
         private readonly Stack<IBitmapEffectCommand> _commandStack;
-        private readonly BitmapFactory _bitmapFactory;
         private Bitmap _image;
 
-        public ImageFilterView(Stack<IBitmapEffectCommand> stack, IImageProcessorFactory factory, BitmapFactory bitmapFactory)
+        public ImageFilterView(Stack<IBitmapEffectCommand> stack)
         {
             InitializeComponent();
-            _image = new Bitmap(picMain.Image);
+            _bitmapFactory = new BitmapFactory();
+            //Ask Austin:
+            // Is it worth having one BitmapFactory for the form,
+            // and another static BitmapFactory for all the Commands?
+            // Should I couple my Form to the Bitmap class?
+            // Or should I use a Singleton?
+            _image = _bitmapFactory.GetInstance(picMain.Image);
+            //_image = new Bitmap(picMain.Image);
             _commandStack = stack;
-            _processingFactory = factory;
-            _bitmapFactory = bitmapFactory;
         }
 
         private void UndoClick(object sender, EventArgs e)

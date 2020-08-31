@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace ImageFilterLibrary.Effect_Commands
+namespace ImageFilterLibrary.EffectCommands
 {
     public class Rotate180Command : IBitmapEffectCommand
 
