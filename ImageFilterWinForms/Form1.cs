@@ -75,7 +75,7 @@ namespace ImageFilterWinForms
 
         private void MosaicClick(object sender, EventArgs e)
         {
-            ExecuteCommand(new MosaicEffectCommand(_image, 250));
+            ExecuteCommand(new LockBitsTestCommand(_image, 250));
         }
 
         private void ExecuteCommand(IBitmapEffectCommand cmd)
