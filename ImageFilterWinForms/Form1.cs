@@ -11,8 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ImageFilterLibrary.EffectCommands;
-using ImageFilterLibrary.ImageProcessorFactory;
-using ImageFilterLibrary.BitmapFactory;
+using ImageFilterLibrary.ImageProcessorFactories;
+using ImageFilterLibrary.BitmapFactories;
+using ImageFilterLibrary.Facades;
 
 namespace ImageFilterWinForms
 {
@@ -79,7 +80,8 @@ namespace ImageFilterWinForms
 
         private void MosaicClick(object sender, EventArgs e)
         {
-            ExecuteCommand(new TestCommand(_processingFactory, _image, _bitmapFactory));
+            ExecuteCommand(new TestCommand(new CommandFacade(_image)));
+            //ExecuteCommand(new TestCommand(_processingFactory, _image, _bitmapFactory));
         }
 
         private void ExecuteCommand(IBitmapEffectCommand command)

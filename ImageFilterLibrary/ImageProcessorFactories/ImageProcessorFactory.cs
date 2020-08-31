@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace ImageFilterLibrary.ImageProcessorFactory
+namespace ImageFilterLibrary.ImageProcessorFactories
 {
     public class ImageProcessorFactory : IImageProcessorFactory
     {

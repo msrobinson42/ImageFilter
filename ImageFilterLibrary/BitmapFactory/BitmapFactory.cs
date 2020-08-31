@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace ImageFilterLibrary.BitmapFactory
+namespace ImageFilterLibrary.BitmapFactories
 {
     public class BitmapFactory : IBitmapFactory
     {

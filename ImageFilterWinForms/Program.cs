@@ -1,6 +1,6 @@
-using ImageFilterLibrary.BitmapFactory;
+using ImageFilterLibrary.BitmapFactories;
 using ImageFilterLibrary.EffectCommands;
-using ImageFilterLibrary.ImageProcessorFactory;
+using ImageFilterLibrary.ImageProcessorFactories;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
