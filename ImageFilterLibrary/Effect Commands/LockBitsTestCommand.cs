@@ -39,6 +39,7 @@ namespace ImageFilterLibrary.Effect_Commands
         public Bitmap Execute()
         {
             _imageFactory.Pixelate(_radius);
+
             var image = new Bitmap(_imageFactory.Image);
             return image;
         }

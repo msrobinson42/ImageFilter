@@ -12,21 +12,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ImageFilterLibrary.EffectCommands;
 using ImageFilterLibrary.ImageProcessorFactory;
+using ImageFilterLibrary.BitmapFactory;
 
 namespace ImageFilterWinForms
 {
     public partial class ImageFilterView : Form
     {
-        private readonly IImageProcessorFactory _factory;
+        private readonly IImageProcessorFactory _processingFactory;
         private readonly Stack<IBitmapEffectCommand> _commandStack;
+        private readonly BitmapFactory _bitmapFactory;
         private Bitmap _image;
 
-        public ImageFilterView(Stack<IBitmapEffectCommand> stack, IImageProcessorFactory factory)
+        public ImageFilterView(Stack<IBitmapEffectCommand> stack, IImageProcessorFactory factory, BitmapFactory bitmapFactory)
         {
             InitializeComponent();
             _image = new Bitmap(picMain.Image);
             _commandStack = stack;
-            _factory = factory;
+            _processingFactory = factory;
+            _bitmapFactory = bitmapFactory;
         }
 
         private void UndoClick(object sender, EventArgs e)
@@ -76,14 +79,15 @@ namespace ImageFilterWinForms
 
         private void MosaicClick(object sender, EventArgs e)
         {
-            ExecuteCommand(new LockBitsTestCommand(_factory, _image));
+            ExecuteCommand(new LockBitsTestCommand(_processingFactory, _image));
         }
 
-        private void ExecuteCommand(IBitmapEffectCommand cmd)
+        private void ExecuteCommand(IBitmapEffectCommand command)
         {
-            var result = cmd.Execute();
+            var result = command.Execute();
 
-            _commandStack.Push(cmd);
+            _commandStack.Push(command);
+
             RefreshImage(result);
         }
 
