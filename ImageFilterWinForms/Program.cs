@@ -1,4 +1,5 @@
 using ImageFilterLibrary.EffectCommands;
+using ImageFilterLibrary.ImageProcessorFactory;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -16,11 +17,12 @@ namespace ImageFilterWinForms
         [STAThread]
         static void Main()
         {
+            var imageProcessorFactory = new ImageProcessorFactory();
             var stack = new Stack<IBitmapEffectCommand>();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ImageFilterView(stack));
+            Application.Run(new ImageFilterView(stack, imageProcessorFactory));
         }
     }
 }

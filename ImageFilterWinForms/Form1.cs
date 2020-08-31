@@ -11,19 +11,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ImageFilterLibrary.EffectCommands;
+using ImageFilterLibrary.ImageProcessorFactory;
 
 namespace ImageFilterWinForms
 {
     public partial class ImageFilterView : Form
     {
+        private readonly IImageProcessorFactory _factory;
+        private readonly Stack<IBitmapEffectCommand> _commandStack;
         private Bitmap _image;
-        private Stack<IBitmapEffectCommand> _commandStack;
 
-        public ImageFilterView(Stack<IBitmapEffectCommand> stack)
+        public ImageFilterView(Stack<IBitmapEffectCommand> stack, IImageProcessorFactory factory)
         {
             InitializeComponent();
             _image = new Bitmap(picMain.Image);
             _commandStack = stack;
+            _factory = factory;
         }
 
         private void UndoClick(object sender, EventArgs e)
@@ -33,9 +36,12 @@ namespace ImageFilterWinForms
                 if(_commandStack.Count > 0)
                     _image.Dispose();
 
-                var result = _commandStack.UndoPop();
+                var command = _commandStack.Pop();
+                var result = new Bitmap(command.Unexecute());
 
                 RefreshImage(result);
+
+                command.Dispose();
             }
             catch (InvalidOperationException)
             {
@@ -51,12 +57,6 @@ namespace ImageFilterWinForms
                 var newCommand = oldCommand.NewCommandFromCopy(_image);
 
                 ExecuteCommand(newCommand);
-
-                //var type = oldCommand.GetType();
-
-                //var command = (IBitmapEffectCommand)Activator.CreateInstance(type, _image);
-
-                //ExecuteCommand(command);
             }
             catch (InvalidOperationException)
             {
@@ -76,7 +76,7 @@ namespace ImageFilterWinForms
 
         private void MosaicClick(object sender, EventArgs e)
         {
-            ExecuteCommand(new LockBitsTestCommand(_image, 250));
+            ExecuteCommand(new LockBitsTestCommand(_factory, _image));
         }
 
         private void ExecuteCommand(IBitmapEffectCommand cmd)
