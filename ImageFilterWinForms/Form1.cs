@@ -1,6 +1,7 @@
 ﻿using System;
 using ImageFilterLibrary.Effect_Commands;
 using System.Collections.Generic;
+using ImageProcessor;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
