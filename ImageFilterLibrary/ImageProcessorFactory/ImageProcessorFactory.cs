@@ -8,11 +8,16 @@ namespace ImageFilterLibrary.ImageProcessorFactory
 {
     public class ImageProcessorFactory : IImageProcessorFactory
     {
-        public ImageFactory GetImageProcessor(Bitmap image)
+        public ImageFactory GetInstance(Bitmap image)
         {
             var factory = new ImageFactory();
             factory.Load(image);
             return factory;
+        }
+
+        public ImageFactory GetInstance()
+        {
+            return new ImageFactory();
         }
     }
 }

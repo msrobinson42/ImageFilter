@@ -79,7 +79,7 @@ namespace ImageFilterWinForms
 
         private void MosaicClick(object sender, EventArgs e)
         {
-            ExecuteCommand(new LockBitsTestCommand(_processingFactory, _image));
+            ExecuteCommand(new TestCommand(_processingFactory, _image, _bitmapFactory));
         }
 
         private void ExecuteCommand(IBitmapEffectCommand command)

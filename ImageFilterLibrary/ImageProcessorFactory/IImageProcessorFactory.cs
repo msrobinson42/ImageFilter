@@ -8,6 +8,7 @@ namespace ImageFilterLibrary.ImageProcessorFactory
 {
     public interface IImageProcessorFactory
     {
-        public ImageFactory GetImageProcessor(Bitmap image);
+        public ImageFactory GetInstance(Bitmap image);
+        public ImageFactory GetInstance();
     }
 }

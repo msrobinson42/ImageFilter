@@ -8,5 +8,6 @@ namespace ImageFilterLibrary.BitmapFactory
     public interface IBitmapFactory
     {
         public Bitmap GetInstance(Bitmap image);
+        public Bitmap GetInstance(Image image);
     }
 }
