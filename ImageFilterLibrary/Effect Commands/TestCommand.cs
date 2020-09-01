@@ -14,23 +14,8 @@ namespace ImageFilterLibrary.EffectCommands
 {
     public class TestCommand : IBitmapEffectCommand
     {
-        //private readonly IImageProcessorFactory _processorFactory;
-        //private readonly IBitmapFactory _bitmapFactory;
-        //private readonly ImageFactory _imageFactory;
-        //private readonly Bitmap _bitmap;
         private readonly CommandFacade _facade;
         private readonly int _radius;
-
-        //public TestCommand(IImageProcessorFactory processorFactory, Bitmap image, IBitmapFactory bitmapFactory, int radius = 50)
-        //{
-        //    _processorFactory = processorFactory;
-        //    _imageFactory = _processorFactory.GetInstance(image);
-
-        //    _bitmapFactory = bitmapFactory;
-        //    _bitmap = _bitmapFactory.GetInstance(_imageFactory.Image);
-
-        //    _radius = radius;
-        //}
 
         public TestCommand(CommandFacade facade, int radius = 50)
         {
@@ -38,38 +23,41 @@ namespace ImageFilterLibrary.EffectCommands
             _radius = radius;
         }
 
+        //Execute() adds a Pixelate/Mosaic effect to the image.
         public Bitmap Execute()
         {
+
+            //_facade.ImageFactory.Pixelate(_radius);
+
+            //var imageAfterFilter = _facade.ImageFactory.Image;
+
+            //var result = _facade.BitmapFactory.GetInstance(imageAfterFilter);
+
+            //return result;
+
             var imgAfterFilter = _facade.ImageFactory
                 .Pixelate(_radius)
                 .Image;
 
             return _facade.BitmapFactory.GetInstance(imgAfterFilter);
-
-            //_imageFactory.Pixelate(_radius);
-            //return _bitmapFactory.GetInstance(_imageFactory.Image);
         }
 
         public Bitmap Unexecute()
         {
             return _facade.InitialImage;
-            //return _bitmap;
         }
 
         public IBitmapEffectCommand NewCommandFromCopy(Bitmap image)
         {
-            var facade = new CommandFacade(image);
+            //var facade = new CommandFacade(image);
+            var facade = _facade.Copy(image);
             return new TestCommand(facade);
-            //return new TestCommand(_processorFactory, image, _bitmapFactory, _radius);
         }
 
         public void Dispose()
         {
             _facade.InitialImage.Dispose();
             _facade.ImageFactory.Dispose();
-
-            //_bitmap.Dispose();
-            //_imageFactory.Dispose();
         }
     }
 }
