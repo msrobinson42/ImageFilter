@@ -1,5 +1,6 @@
 using ImageFilterLibrary.BitmapFactories;
 using ImageFilterLibrary.EffectCommands;
+using ImageFilterLibrary.FacadeFactory;
 using ImageFilterLibrary.ImageProcessorFactories;
 using System;
 using System.Collections.Generic;
@@ -19,11 +20,13 @@ namespace ImageFilterWinForms
         static void Main()
         {
             var stack = new Stack<IBitmapEffectCommand>();
+            var bitmapFactory = new BitmapFactory();
+            var commandFacadeFactory = new CommandFacadeFactory();
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ImageFilterView(stack));
+            Application.Run(new ImageFilterView(stack, bitmapFactory, commandFacadeFactory));
         }
     }
 }
