@@ -10,8 +10,7 @@ using ImageFilterLibrary.CommandCreationVisitor;
 
 namespace ImageFilterWinForms
 {
-    // TODO: Implement CommandFacadeFactory.
-    // TODO: Find solution to Open/Closed problem with CommandFactory.
+    //TODO: Continue Implementing Visitor Pattern
     public partial class ImageFilterView : Form
     {
         private readonly IBitmapFactory _bitmapFactory;
