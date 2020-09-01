@@ -5,27 +5,27 @@ using System.Windows.Forms;
 using ImageFilterLibrary.EffectCommands;
 using ImageFilterLibrary.BitmapFactories;
 using ImageFilterLibrary.Facades;
+using ImageFilterLibrary.FacadeFactory;
 
 namespace ImageFilterWinForms
 {
+    // TODO: Implement CommandFacadeFactory.
+    // TODO: Find solution to Open/Closed problem with CommandFactory.
     public partial class ImageFilterView : Form
     {
         private readonly IBitmapFactory _bitmapFactory;
+        private readonly ICommandFacadeFactory _commandFacadeFactory;
         private readonly Stack<IBitmapEffectCommand> _commandStack;
         private Bitmap _image;
 
-        public ImageFilterView(Stack<IBitmapEffectCommand> stack)
+        public ImageFilterView(Stack<IBitmapEffectCommand> stack, BitmapFactory bitmapFactory, 
+            ICommandFacadeFactory commandFacadeFactory)
         {
             InitializeComponent();
-            _bitmapFactory = new BitmapFactory();
-            //Ask Austin:
-            // Is it worth having one BitmapFactory for the form,
-            // and another static BitmapFactory for all the Commands?
-            // Should I couple my Form to the Bitmap class?
-            // Or should I use a Singleton?
+            _bitmapFactory = bitmapFactory;
             _image = _bitmapFactory.GetInstance(picMain.Image);
-            //_image = new Bitmap(picMain.Image);
             _commandStack = stack;
+            _commandFacadeFactory = commandFacadeFactory;
         }
 
         private void UndoClick(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace ImageFilterWinForms
                     _image.Dispose();
 
                 var command = _commandStack.Pop();
-                var result = new Bitmap(command.Unexecute());
+                var result = _bitmapFactory.GetInstance(command.Unexecute());
 
                 RefreshImage(result);
 
@@ -75,8 +75,8 @@ namespace ImageFilterWinForms
 
         private void MosaicClick(object sender, EventArgs e)
         {
-            ExecuteCommand(new TestCommand(new CommandFacade(_image)));
-            //ExecuteCommand(new TestCommand(_processingFactory, _image, _bitmapFactory));
+            var facade = _commandFacadeFactory.GetInstance(_image);
+            ExecuteCommand(new TestCommand(facade));
         }
 
         private void ExecuteCommand(IBitmapEffectCommand command)
@@ -111,7 +111,7 @@ namespace ImageFilterWinForms
                     //Create image and display it.
                     try
                     {
-                        _image = new Bitmap(filePath);
+                        _image = _bitmapFactory.GetInstance(filePath);
                         picMain.Image = _image;
                     }
                     catch (ArgumentException)
