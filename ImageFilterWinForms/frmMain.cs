@@ -6,7 +6,6 @@ using ImageFilterLibrary.EffectCommands;
 using ImageFilterLibrary.BitmapFactories;
 using ImageFilterLibrary.Facades;
 using ImageFilterLibrary.FacadeFactory;
-using ImageFilterLibrary.CommandCreationVisitor;
 
 namespace ImageFilterWinForms
 {
@@ -74,19 +73,10 @@ namespace ImageFilterWinForms
             ExecuteCommand(new Rotate180Command(_image));
         }
 
-        private void TestClick(object sender, EventArgs e)
+        private void MosaicClick(object sender, EventArgs e)
         {
-            var radius = 100; // get user input
-
-            var creator = new CommandCreationVisitor();
-            var info = new TestCommandCreationInformation(_commandFacadeFactory.GetInstance(_image), radius);
-
-            var command = info.Accept(creator);
-
-            ExecuteCommand(command);
-
-            //var facade = _commandFacadeFactory.GetInstance(_image);
-            //ExecuteCommand(new TestCommand(facade));
+            var facade = _commandFacadeFactory.GetInstance(_image);
+            ExecuteCommand(new TestCommand(facade));
         }
 
         private void ExecuteCommand(IBitmapEffectCommand command)

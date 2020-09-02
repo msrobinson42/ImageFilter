@@ -219,7 +219,7 @@ namespace ImageFilterWinForms
             this.mosaicToolStripMenuItem.Name = "mosaicToolStripMenuItem";
             this.mosaicToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.mosaicToolStripMenuItem.Text = "Mosaic";
-            this.mosaicToolStripMenuItem.Click += new System.EventHandler(this.TestClick);
+            this.mosaicToolStripMenuItem.Click += new System.EventHandler(this.MosaicClick);
             // 
             // ImageFilterView
             // 
