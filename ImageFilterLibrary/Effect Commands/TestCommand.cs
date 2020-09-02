@@ -49,6 +49,7 @@ namespace ImageFilterLibrary.EffectCommands
 
         public IBitmapEffectCommand NewCommandFromCopy(Bitmap image)
         {
+            //var facade = new CommandFacade(image);
             var facade = _facade.Copy(image);
             return new TestCommand(facade);
         }
