@@ -1,4 +1,5 @@
 ﻿using ImageFilterLibrary.BitmapFactories;
+using ImageFilterLibrary.FacadeFactory;
 using ImageFilterLibrary.ImageProcessorFactories;
 using ImageProcessor;
 using System;
@@ -10,11 +11,13 @@ namespace ImageFilterLibrary.Facades
 {
     public class CommandFacade
     {
+        private static readonly ICommandFacadeFactory _commandFacadeFactory;
         private static readonly IImageProcessorFactory _processorFactory;
         private static readonly IBitmapFactory _bitmapFactory;
 
         static CommandFacade()
         {
+            _commandFacadeFactory = new CommandFacadeFactory();
             _processorFactory = new ImageProcessorFactory();
             _bitmapFactory = new BitmapFactory();
         }
@@ -29,5 +32,10 @@ namespace ImageFilterLibrary.Facades
         public ImageFactory ImageFactory { get; }
         public IBitmapFactory BitmapFactory { get; }
         public Bitmap InitialImage { get; }
+
+        public CommandFacade Copy(Bitmap image)
+        {
+            return _commandFacadeFactory.GetInstance(image);
+        }
     }
 }

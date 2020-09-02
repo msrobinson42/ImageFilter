@@ -8,5 +8,10 @@ namespace ImageFilterLibrary.BitmapFactories
         {
             return new Bitmap(image);
         }
+
+        public Bitmap GetInstance(string path)
+        {
+            return new Bitmap(path);
+        }
     }
 }
