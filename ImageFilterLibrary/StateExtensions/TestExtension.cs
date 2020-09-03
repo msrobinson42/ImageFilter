@@ -10,7 +10,7 @@ namespace ImageFilterLibrary
     {
         public static void Test(this ImageEditorState @this, int radius)
         {
-            var newImage = ImageProcessor.Instance.Pixellate(@this.Image, radius);
+            var newImage = ImageProcessor.Instance.Pixelate(@this.Image, radius);
 
             @this.Update(newImage);
         }
