@@ -10,15 +10,15 @@ namespace ImageFilterLibrary
     public class ImageEditorState
     {
         private readonly ImageFactory _imageFactory = new ImageFactory();
-        private readonly Stack<Bitmap> _undoStack = new Stack<Bitmap>();
-        private readonly Stack<Bitmap> _redoStack = new Stack<Bitmap>();
+        private readonly Stack<Image> _undoStack = new Stack<Image>();
+        private readonly Stack<Image> _redoStack = new Stack<Image>();
 
-        public ImageEditorState(Bitmap image)
+        public ImageEditorState(Image image)
         {
             Image = image;
         }
 
-        public Bitmap Image { get; private set; }
+        public Image Image { get; private set; }
         public ImageFactory ImageFactory { get; }
         public bool CanRedo => _redoStack.Any();
         public bool CanUndo => _undoStack.Any();
@@ -56,7 +56,7 @@ namespace ImageFilterLibrary
             }
         }
 
-        public void Update(Bitmap newImage)
+        public void Update(Image newImage)
         {
             _undoStack.Push(Image);
 

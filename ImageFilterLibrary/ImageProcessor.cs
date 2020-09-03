@@ -17,16 +17,38 @@ namespace ImageFilterLibrary
 
         public Image Pixellate(Image image, int radius)
         {
-            var factory = new ImageFactory();
+            using var factory = new ImageFactory();
 
             factory.Load(image);
             factory.Pixelate(radius);
 
             var result = factory.Image;
 
-            factory.Dispose();
+            return new Bitmap(result);
+        }
 
-            return result;
+        public Image Rotate(Image image, int degrees)
+        {
+            using var factory = new ImageFactory();
+
+            factory.Load(image);
+            factory.Rotate(degrees);
+
+            var result = factory.Image;
+
+            return new Bitmap(result);
+        }
+
+        public Image Brightness(Image image, int percentage)
+        {
+            using var factory = new ImageFactory();
+
+            factory.Load(image);
+            factory.Brightness(percentage);
+
+            var result = factory.Image;
+
+            return new Bitmap(result);
         }
     }
 }

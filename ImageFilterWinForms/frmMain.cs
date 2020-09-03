@@ -19,8 +19,8 @@ namespace ImageFilterWinForms
         private readonly ICommandFacadeFactory _commandFacadeFactory;
         private readonly ICommandFactory _commandFactory;
         private readonly Stack<IBitmapEffectCommand> _commandStack;
-        private readonly Stack<Bitmap> _bitmapStack = new Stack<Bitmap>();
-        private Bitmap _image;
+        private readonly Stack<Image> _bitmapStack = new Stack<Image>();
+        private Image _image;
         private readonly ImageEditorState _state;
 
         private Action _lastCommand;
@@ -65,47 +65,27 @@ namespace ImageFilterWinForms
 
         private void RepeatClick(object sender, EventArgs e)
         {
-            try
-            {
-                var oldCommand = _commandStack.Peek();
-                var newCommand = oldCommand.NewCommandFromCopy(_image);
-
-                ExecuteCommand(newCommand);
-            }
-            catch (InvalidOperationException)
-            {
-                MessageBox.Show("You have not performed any actions yet.", "Empty Stack");
-            }
-
             _lastCommand();
+
+            RefreshImageState();
         }
 
         private void Rotate90CW(object sender, EventArgs e)
         {
             _state.Rotate90CW();
+            _lastCommand = new Action(() => _state.Rotate90CW());
 
             RefreshImageState();
-
-            //_bitmapStack.Push(_image);
-
-            //var newImage = new Bitmap(_image);
-
-            //newImage.RotateFlip(RotateFlipType.Rotate90FlipNone);
-
-            //RefreshImage(newImage);
-
-            //ExecuteCommand(new Rotate90ClockwiseCommand(_image));
         }
 
         private void Rotate180(object sender, EventArgs e)
         {
-            _state.Rotate180();
+            //_state.Rotate180();
+            //_state.Rotate(180);
+            _state.Brightness(50);
             _lastCommand = new Action(() => _state.Rotate180());
 
             RefreshImageState();
-            //EnumType.Rotate180
-            //ExecuteCommand(new Rotate180Command(_image));
-            //System.Linq.Expressions.Expression varname = System.Linq.Expressions.Expression.
         }
 
         private void RefreshImageState()
@@ -115,13 +95,13 @@ namespace ImageFilterWinForms
 
         private void MosaicClick(object sender, EventArgs e)
         {
-            //open mosiac dialog
-            //var result = dialog.result;
-            //_dict[EnumKey].GetInstance(_image, radius);
+            var radius = 80;
 
-            //var facade = _commandFacadeFactory.GetInstance(_image);
-            //ExecuteCommand(new TestCommand(facade));
-            ExecuteCommand(_commandFactory.GetInstance(_image, BitmapCommandType.Test));
+            _state.Test(radius);
+            _lastCommand = new Action(() => _state.Test(radius));
+
+            RefreshImageState();
+            //ExecuteCommand(_commandFactory.GetInstance(_image, BitmapCommandType.Test));
         }
 
         private void ExecuteCommand(IBitmapEffectCommand command)
@@ -133,7 +113,7 @@ namespace ImageFilterWinForms
             RefreshImage(result);
         }
 
-        private void RefreshImage(Bitmap image)
+        private void RefreshImage(Image image)
         {
             _image = image;
             picMain.Image = _image;
