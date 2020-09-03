@@ -6,6 +6,8 @@ using ImageFilterLibrary.EffectCommands;
 using ImageFilterLibrary.BitmapFactories;
 using ImageFilterLibrary.Facades;
 using ImageFilterLibrary.FacadeFactory;
+using ImageFilterLibrary.CommandFactory;
+using ImageFilterLibrary;
 
 namespace ImageFilterWinForms
 {
@@ -15,32 +17,45 @@ namespace ImageFilterWinForms
     {
         private readonly IBitmapFactory _bitmapFactory;
         private readonly ICommandFacadeFactory _commandFacadeFactory;
+        private readonly ICommandFactory _commandFactory;
         private readonly Stack<IBitmapEffectCommand> _commandStack;
+        private readonly Stack<Bitmap> _bitmapStack = new Stack<Bitmap>();
         private Bitmap _image;
+        private readonly ImageEditorState _state;
+
+        private Action _lastCommand;
 
         public ImageFilterView(Stack<IBitmapEffectCommand> stack, BitmapFactory bitmapFactory, 
-            ICommandFacadeFactory commandFacadeFactory)
+            ICommandFacadeFactory commandFacadeFactory, ICommandFactory commandFactory)
         {
             InitializeComponent();
             _bitmapFactory = bitmapFactory;
             _image = _bitmapFactory.GetInstance(picMain.Image);
             _commandStack = stack;
             _commandFacadeFactory = commandFacadeFactory;
+            _commandFactory = commandFactory;
+
+            _state = new ImageEditorState(_image);
         }
 
         private void UndoClick(object sender, EventArgs e)
         {
             try
             {
-                if(_commandStack.Count > 0)
-                    _image.Dispose();
+                _state.Undo();
+                RefreshImageState();
 
-                var command = _commandStack.Pop();
-                var result = _bitmapFactory.GetInstance(command.Unexecute());
+                //if(_commandStack.Count > 0)
+                //    _image.Dispose();
 
-                RefreshImage(result);
+                //var command = _commandStack.Pop();
+                //var result = _bitmapFactory.GetInstance(command.Unexecute());
 
-                command.Dispose();
+                //var result = _bitmapStack.Pop();
+
+                //RefreshImage(result);
+
+                //command.Dispose();
             }
             catch (InvalidOperationException)
             {
@@ -61,22 +76,52 @@ namespace ImageFilterWinForms
             {
                 MessageBox.Show("You have not performed any actions yet.", "Empty Stack");
             }
+
+            _lastCommand();
         }
 
         private void Rotate90CW(object sender, EventArgs e)
         {
-            ExecuteCommand(new Rotate90ClockwiseCommand(_image));
+            _state.Rotate90CW();
+
+            RefreshImageState();
+
+            //_bitmapStack.Push(_image);
+
+            //var newImage = new Bitmap(_image);
+
+            //newImage.RotateFlip(RotateFlipType.Rotate90FlipNone);
+
+            //RefreshImage(newImage);
+
+            //ExecuteCommand(new Rotate90ClockwiseCommand(_image));
         }
 
         private void Rotate180(object sender, EventArgs e)
         {
-            ExecuteCommand(new Rotate180Command(_image));
+            _state.Rotate180();
+            _lastCommand = new Action(() => _state.Rotate180());
+
+            RefreshImageState();
+            //EnumType.Rotate180
+            //ExecuteCommand(new Rotate180Command(_image));
+            //System.Linq.Expressions.Expression varname = System.Linq.Expressions.Expression.
+        }
+
+        private void RefreshImageState()
+        {
+            picMain.Image = _state.Image;
         }
 
         private void MosaicClick(object sender, EventArgs e)
         {
-            var facade = _commandFacadeFactory.GetInstance(_image);
-            ExecuteCommand(new TestCommand(facade));
+            //open mosiac dialog
+            //var result = dialog.result;
+            //_dict[EnumKey].GetInstance(_image, radius);
+
+            //var facade = _commandFacadeFactory.GetInstance(_image);
+            //ExecuteCommand(new TestCommand(facade));
+            ExecuteCommand(_commandFactory.GetInstance(_image, BitmapCommandType.Test));
         }
 
         private void ExecuteCommand(IBitmapEffectCommand command)
@@ -135,6 +180,12 @@ namespace ImageFilterWinForms
         private void ExitClick(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _state.Redo();
+            RefreshImageState();
         }
     }
 }

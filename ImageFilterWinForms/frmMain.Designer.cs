@@ -52,6 +52,7 @@ namespace ImageFilterWinForms
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pixelToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mosaicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
@@ -221,11 +222,22 @@ namespace ImageFilterWinForms
             this.mosaicToolStripMenuItem.Text = "Mosaic";
             this.mosaicToolStripMenuItem.Click += new System.EventHandler(this.MosaicClick);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(53, 83);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ImageFilterView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 461);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.mnuMain);
             this.Controls.Add(this.picMain);
             this.Name = "ImageFilterView";
@@ -260,6 +272,7 @@ namespace ImageFilterWinForms
         private ToolStripMenuItem rotate180ToolStripMenuItem;
         private ToolStripMenuItem pixelToolStripMenu;
         private ToolStripMenuItem mosaicToolStripMenuItem;
+        private Button button1;
     }
 }
 

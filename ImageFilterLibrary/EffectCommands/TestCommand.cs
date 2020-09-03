@@ -17,10 +17,10 @@ namespace ImageFilterLibrary.EffectCommands
         private readonly CommandFacade _facade;
         private readonly int _radius;
 
-        public TestCommand(CommandFacade facade, int radius = 50)
+        public TestCommand(CommandFacade facade, int? radius = 50)
         {
-            _facade = facade;
-            _radius = radius;
+            _facade = facade ?? throw new ArgumentNullException(nameof(facade));
+            _radius = radius ?? 50;
         }
 
         //Execute() adds a Pixelate/Mosaic effect to the image.
@@ -49,7 +49,6 @@ namespace ImageFilterLibrary.EffectCommands
 
         public IBitmapEffectCommand NewCommandFromCopy(Bitmap image)
         {
-            //var facade = new CommandFacade(image);
             var facade = _facade.Copy(image);
             return new TestCommand(facade);
         }
