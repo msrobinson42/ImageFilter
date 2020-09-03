@@ -7,6 +7,7 @@ using ImageFilterLibrary.BitmapFactories;
 using ImageFilterLibrary.Facades;
 using ImageFilterLibrary.FacadeFactory;
 using ImageFilterLibrary.CommandCreationVisitor;
+using ImageFilterLibrary.Effect_Commands;
 
 namespace ImageFilterWinForms
 {
@@ -66,7 +67,9 @@ namespace ImageFilterWinForms
 
         private void Rotate90CW(object sender, EventArgs e)
         {
-            ExecuteCommand(new Rotate90ClockwiseCommand(_image));
+            var percentage = 50;
+            // ExecuteCommand(new Rotate90ClockwiseCommand(_image));
+            ExecuteCommand(new AlphaCommand(_commandFacadeFactory.GetInstance(_image), percentage ) );
         }
 
         private void Rotate180(object sender, EventArgs e)
