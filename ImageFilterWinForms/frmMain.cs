@@ -15,28 +15,17 @@ namespace ImageFilterWinForms
     // TODO: Find solution to Open/Closed problem with CommandFactory.
     public partial class ImageFilterView : Form
     {
-        private readonly IBitmapFactory _bitmapFactory;
-        private readonly ICommandFacadeFactory _commandFacadeFactory;
-        private readonly ICommandFactory _commandFactory;
-        private readonly Stack<IBitmapEffectCommand> _commandStack;
-        private readonly Stack<Image> _bitmapStack = new Stack<Image>();
-        private Image _image;
-        private readonly ImageEditorState _state;
-
+        private ImageEditorState _state;
         private Action _lastCommand;
 
         public ImageFilterView(Stack<IBitmapEffectCommand> stack, BitmapFactory bitmapFactory, 
             ICommandFacadeFactory commandFacadeFactory, ICommandFactory commandFactory)
         {
             InitializeComponent();
-            _bitmapFactory = bitmapFactory;
-            _image = _bitmapFactory.GetInstance(picMain.Image);
-            _commandStack = stack;
-            _commandFacadeFactory = commandFacadeFactory;
-            _commandFactory = commandFactory;
 
-            _state = new ImageEditorState(_image);
+            _state = new ImageEditorState(picMain.Image);
         }
+        private void RefreshImageState() => picMain.Image = _state.Image;
 
         private void UndoClick(object sender, EventArgs e)
         {
@@ -44,18 +33,6 @@ namespace ImageFilterWinForms
             {
                 _state.Undo();
                 RefreshImageState();
-
-                //if(_commandStack.Count > 0)
-                //    _image.Dispose();
-
-                //var command = _commandStack.Pop();
-                //var result = _bitmapFactory.GetInstance(command.Unexecute());
-
-                //var result = _bitmapStack.Pop();
-
-                //RefreshImage(result);
-
-                //command.Dispose();
             }
             catch (InvalidOperationException)
             {
@@ -88,12 +65,7 @@ namespace ImageFilterWinForms
             RefreshImageState();
         }
 
-        private void RefreshImageState()
-        {
-            picMain.Image = _state.Image;
-        }
-
-        private void MosaicClick(object sender, EventArgs e)
+        private void TestClick(object sender, EventArgs e)
         {
             var radius = 80;
 
@@ -101,22 +73,6 @@ namespace ImageFilterWinForms
             _lastCommand = new Action(() => _state.Test(radius));
 
             RefreshImageState();
-            //ExecuteCommand(_commandFactory.GetInstance(_image, BitmapCommandType.Test));
-        }
-
-        private void ExecuteCommand(IBitmapEffectCommand command)
-        {
-            var result = command.Execute();
-
-            _commandStack.Push(command);
-
-            RefreshImage(result);
-        }
-
-        private void RefreshImage(Image image)
-        {
-            _image = image;
-            picMain.Image = _image;
         }
 
         private void OpenImageClick(object sender, EventArgs e)
@@ -136,8 +92,9 @@ namespace ImageFilterWinForms
                     //Create image and display it.
                     try
                     {
-                        _image = _bitmapFactory.GetInstance(filePath);
-                        picMain.Image = _image;
+                        var image = new Bitmap(filePath);
+                        _state = new ImageEditorState(image);
+                        RefreshImageState();
                     }
                     catch (ArgumentException)
                     {
@@ -145,16 +102,6 @@ namespace ImageFilterWinForms
                     }
                 }
             }
-
-            ResetStack();
-        }
-
-        private void ResetStack()
-        {
-            foreach (var item in _commandStack)
-                item.Dispose();
-
-            _commandStack.Clear();
         }
 
         private void ExitClick(object sender, EventArgs e)

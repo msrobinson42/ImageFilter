@@ -64,22 +64,25 @@ namespace ImageFilterWinForms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picMain.BackColor = System.Drawing.Color.Black;
             this.picMain.Image = ((System.Drawing.Image)(resources.GetObject("picMain.Image")));
-            this.picMain.Location = new System.Drawing.Point(0, 27);
+            this.picMain.Location = new System.Drawing.Point(0, 36);
+            this.picMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picMain.Name = "picMain";
-            this.picMain.Size = new System.Drawing.Size(850, 436);
+            this.picMain.Size = new System.Drawing.Size(971, 581);
             this.picMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picMain.TabIndex = 0;
             this.picMain.TabStop = false;
             // 
             // mnuMain
             // 
+            this.mnuMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.toolsToolStripMenuItem});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(850, 24);
+            this.mnuMain.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
+            this.mnuMain.Size = new System.Drawing.Size(971, 30);
             this.mnuMain.TabIndex = 1;
             this.mnuMain.Text = "Main Menu";
             // 
@@ -92,7 +95,7 @@ namespace ImageFilterWinForms
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // openToolStripMenuItem
@@ -101,14 +104,14 @@ namespace ImageFilterWinForms
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenImageClick);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(178, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -116,18 +119,18 @@ namespace ImageFilterWinForms
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.saveToolStripMenuItem.Text = "&Save";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(178, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitClick);
             // 
@@ -138,26 +141,26 @@ namespace ImageFilterWinForms
             this.toolStripSeparator3,
             this.repeatToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.editToolStripMenuItem.Text = "&Edit";
             // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.UndoClick);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(169, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(213, 6);
             // 
             // repeatToolStripMenuItem
             // 
             this.repeatToolStripMenuItem.Name = "repeatToolStripMenuItem";
-            this.repeatToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.repeatToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.repeatToolStripMenuItem.Text = "Repeat Last Action";
             this.repeatToolStripMenuItem.Click += new System.EventHandler(this.RepeatClick);
             // 
@@ -169,7 +172,7 @@ namespace ImageFilterWinForms
             this.optionsToolStripMenuItem,
             this.pixelToolStripMenu});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // rotateStripMenuItem
@@ -178,33 +181,33 @@ namespace ImageFilterWinForms
             this.clockwiseToolStripMenuItem,
             this.rotate180ToolStripMenuItem});
             this.rotateStripMenuItem.Name = "rotateStripMenuItem";
-            this.rotateStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.rotateStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.rotateStripMenuItem.Text = "Rotate";
             // 
             // clockwiseToolStripMenuItem
             // 
             this.clockwiseToolStripMenuItem.Name = "clockwiseToolStripMenuItem";
-            this.clockwiseToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.clockwiseToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
             this.clockwiseToolStripMenuItem.Text = "90° Clockwise";
             this.clockwiseToolStripMenuItem.Click += new System.EventHandler(this.Rotate90CW);
             // 
             // rotate180ToolStripMenuItem
             // 
             this.rotate180ToolStripMenuItem.Name = "rotate180ToolStripMenuItem";
-            this.rotate180ToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.rotate180ToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
             this.rotate180ToolStripMenuItem.Text = "Rotate 180°";
             this.rotate180ToolStripMenuItem.Click += new System.EventHandler(this.Rotate180);
             // 
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // pixelToolStripMenu
@@ -212,21 +215,22 @@ namespace ImageFilterWinForms
             this.pixelToolStripMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mosaicToolStripMenuItem});
             this.pixelToolStripMenu.Name = "pixelToolStripMenu";
-            this.pixelToolStripMenu.Size = new System.Drawing.Size(130, 22);
+            this.pixelToolStripMenu.Size = new System.Drawing.Size(161, 26);
             this.pixelToolStripMenu.Text = "Pixelate";
             // 
             // mosaicToolStripMenuItem
             // 
             this.mosaicToolStripMenuItem.Name = "mosaicToolStripMenuItem";
-            this.mosaicToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.mosaicToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
             this.mosaicToolStripMenuItem.Text = "Mosaic";
-            this.mosaicToolStripMenuItem.Click += new System.EventHandler(this.MosaicClick);
+            this.mosaicToolStripMenuItem.Click += new System.EventHandler(this.TestClick);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(53, 83);
+            this.button1.Location = new System.Drawing.Point(61, 111);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(86, 31);
             this.button1.TabIndex = 2;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -234,12 +238,13 @@ namespace ImageFilterWinForms
             // 
             // ImageFilterView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 461);
+            this.ClientSize = new System.Drawing.Size(971, 615);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.mnuMain);
             this.Controls.Add(this.picMain);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ImageFilterView";
             this.Text = "Image Filter";
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).EndInit();
