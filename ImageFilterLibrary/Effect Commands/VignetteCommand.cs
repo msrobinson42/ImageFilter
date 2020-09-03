@@ -21,24 +21,30 @@ namespace ImageFilterLibrary.Effect_Commands
 
         public Bitmap Execute()
         {
-            throw new NotImplementedException();
+            var imgAfterFilter = _facade.ImageFactory
+                 .Vignette(_color)
+                 .Image;
+
+            return _facade.BitmapFactory.GetInstance(imgAfterFilter);
         }
 
         public Bitmap Unexecute()
         {
-            throw new NotImplementedException();
+            return _facade.InitialImage;
 
         }
 
         public IBitmapEffectCommand NewCommandFromCopy(Bitmap image)
         {
-            throw new NotImplementedException();
+            var facade = _facade.Copy(image);
+            return new VignetteCommand(facade);
 
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _facade.InitialImage.Dispose();
+            _facade.ImageFactory.Dispose();
 
         }
     }
