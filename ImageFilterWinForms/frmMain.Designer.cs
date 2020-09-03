@@ -52,7 +52,7 @@ namespace ImageFilterWinForms
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pixelToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mosaicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRdo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
@@ -225,23 +225,23 @@ namespace ImageFilterWinForms
             this.mosaicToolStripMenuItem.Text = "Mosaic";
             this.mosaicToolStripMenuItem.Click += new System.EventHandler(this.TestClick);
             // 
-            // button1
+            // btnRdo
             // 
-            this.button1.Location = new System.Drawing.Point(61, 111);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRdo.Location = new System.Drawing.Point(61, 111);
+            this.btnRdo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRdo.Name = "btnRdo";
+            this.btnRdo.Size = new System.Drawing.Size(86, 31);
+            this.btnRdo.TabIndex = 2;
+            this.btnRdo.Text = "Redo";
+            this.btnRdo.UseVisualStyleBackColor = true;
+            this.btnRdo.Click += new System.EventHandler(this.RedoClick);
             // 
             // ImageFilterView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 615);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRdo);
             this.Controls.Add(this.mnuMain);
             this.Controls.Add(this.picMain);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -277,7 +277,7 @@ namespace ImageFilterWinForms
         private ToolStripMenuItem rotate180ToolStripMenuItem;
         private ToolStripMenuItem pixelToolStripMenu;
         private ToolStripMenuItem mosaicToolStripMenuItem;
-        private Button button1;
+        private Button btnRdo;
     }
 }
 

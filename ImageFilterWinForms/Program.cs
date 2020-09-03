@@ -20,15 +20,10 @@ namespace ImageFilterWinForms
         [STAThread]
         static void Main()
         {
-            var stack = new Stack<IBitmapEffectCommand>();
-            var bitmapFactory = new BitmapFactory();
-            var commandFacadeFactory = new CommandFacadeFactory();
-            var commandFactory = new CommandFactory(commandFacadeFactory);
-
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ImageFilterView(stack, bitmapFactory, commandFacadeFactory, commandFactory));
+            Application.Run(new ImageFilterView());
         }
     }
 }

@@ -18,8 +18,7 @@ namespace ImageFilterWinForms
         private ImageEditorState _state;
         private Action _lastCommand;
 
-        public ImageFilterView(Stack<IBitmapEffectCommand> stack, BitmapFactory bitmapFactory, 
-            ICommandFacadeFactory commandFacadeFactory, ICommandFactory commandFactory)
+        public ImageFilterView()
         {
             InitializeComponent();
 
@@ -29,20 +28,13 @@ namespace ImageFilterWinForms
 
         private void UndoClick(object sender, EventArgs e)
         {
-            try
-            {
-                _state.Undo();
-                RefreshImageState();
-            }
-            catch (InvalidOperationException)
-            {
-                MessageBox.Show("You have not performed any actions yet.", "Empty Stack");
-            }
+            _state.Undo();
+            RefreshImageState();
         }
 
         private void RepeatClick(object sender, EventArgs e)
         {
-            _lastCommand();
+            _lastCommand?.Invoke();
 
             RefreshImageState();
         }
@@ -57,9 +49,8 @@ namespace ImageFilterWinForms
 
         private void Rotate180(object sender, EventArgs e)
         {
-            //_state.Rotate180();
-            //_state.Rotate(180);
-            _state.Brightness(50);
+            _state.Rotate180();
+
             _lastCommand = new Action(() => _state.Rotate180());
 
             RefreshImageState();
@@ -109,7 +100,7 @@ namespace ImageFilterWinForms
             Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void RedoClick(object sender, EventArgs e)
         {
             _state.Redo();
             RefreshImageState();
