@@ -6,8 +6,6 @@ using ImageFilterLibrary;
 
 namespace ImageFilterWinForms
 {
-    // TODO: Implement CommandFacadeFactory.
-    // TODO: Find solution to Open/Closed problem with CommandFactory.
     public partial class ImageFilterView : Form
     {
         private ImageEditorState _state;
@@ -19,6 +17,7 @@ namespace ImageFilterWinForms
 
             _state = new ImageEditorState(picMain.Image);
         }
+
         private void RefreshImageState() => picMain.Image = _state.Image;
 
         private void UndoClick(object sender, EventArgs e)
