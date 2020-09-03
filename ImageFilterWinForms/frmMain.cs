@@ -35,17 +35,20 @@ namespace ImageFilterWinForms
 
         private void Rotate90CW(object sender, EventArgs e)
         {
-            _state.Rotate90CW();
-            _lastCommand = new Action(() => _state.Rotate90CW());
+            int degrees = 90;
+
+            _state.Rotate(degrees);
+            _lastCommand = new Action(() => _state.Rotate(degrees));
 
             RefreshImageState();
         }
 
         private void Rotate180(object sender, EventArgs e)
         {
-            _state.Rotate180();
+            int degrees = 180;
 
-            _lastCommand = new Action(() => _state.Rotate180());
+            _state.Rotate(degrees);
+            _lastCommand = new Action(() => _state.Rotate(degrees));
 
             RefreshImageState();
         }
