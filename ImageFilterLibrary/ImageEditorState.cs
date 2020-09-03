@@ -9,7 +9,6 @@ namespace ImageFilterLibrary
 {
     public class ImageEditorState
     {
-        private readonly ImageFactory _imageFactory = new ImageFactory();
         private readonly Stack<Image> _undoStack = new Stack<Image>();
         private readonly Stack<Image> _redoStack = new Stack<Image>();
 
@@ -63,7 +62,6 @@ namespace ImageFilterLibrary
             Image = newImage;
 
             ClearRedoStack();
-
         }
     }
 
