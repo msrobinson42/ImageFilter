@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using ImageFilterLibrary.EffectCommands;
-using ImageFilterLibrary.BitmapFactories;
-using ImageFilterLibrary.Facades;
-using ImageFilterLibrary.FacadeFactory;
-using ImageFilterLibrary.CommandFactory;
 using ImageFilterLibrary;
 
 namespace ImageFilterWinForms

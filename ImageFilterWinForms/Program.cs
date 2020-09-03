@@ -1,8 +1,3 @@
-using ImageFilterLibrary.BitmapFactories;
-using ImageFilterLibrary.CommandFactory;
-using ImageFilterLibrary.EffectCommands;
-using ImageFilterLibrary.FacadeFactory;
-using ImageFilterLibrary.ImageProcessorFactories;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
