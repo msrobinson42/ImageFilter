@@ -47,10 +47,22 @@ namespace ImageFilterWinForms
             this.repeatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotateStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pixelToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.mosaicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alphaMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bgColorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.brightnessMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detectEdgesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entropyCropMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gaussBlurMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gaussSharpenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hueMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pixelateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.qualityMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replaceColorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cornersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saturationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tintMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vignetteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
@@ -127,6 +139,7 @@ namespace ImageFilterWinForms
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitClick);
@@ -174,9 +187,22 @@ namespace ImageFilterWinForms
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rotateStripMenuItem,
-            this.customizeToolStripMenuItem,
-            this.optionsToolStripMenuItem,
-            this.pixelToolStripMenu});
+            this.alphaMenuItem,
+            this.bgColorMenuItem,
+            this.brightnessMenuItem,
+            this.detectEdgesMenuItem,
+            this.entropyCropMenuItem,
+            this.filterMenuItem,
+            this.gaussBlurMenuItem,
+            this.gaussSharpenMenuItem,
+            this.hueMenuItem,
+            this.pixelateMenuItem,
+            this.qualityMenuItem,
+            this.replaceColorMenuItem,
+            this.cornersMenuItem,
+            this.saturationMenuItem,
+            this.tintMenuItem,
+            this.vignetteMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
@@ -184,36 +210,105 @@ namespace ImageFilterWinForms
             // rotateStripMenuItem
             // 
             this.rotateStripMenuItem.Name = "rotateStripMenuItem";
-            this.rotateStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.rotateStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.rotateStripMenuItem.Text = "Rotate";
             this.rotateStripMenuItem.Click += new System.EventHandler(this.Rotate);
             // 
-            // customizeToolStripMenuItem
+            // alphaMenuItem
             // 
-            this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.customizeToolStripMenuItem.Text = "&Customize";
+            this.alphaMenuItem.Name = "alphaMenuItem";
+            this.alphaMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.alphaMenuItem.Text = "Alpha";
             // 
-            // optionsToolStripMenuItem
+            // bgColorMenuItem
             // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.optionsToolStripMenuItem.Text = "&Options";
+            this.bgColorMenuItem.Name = "bgColorMenuItem";
+            this.bgColorMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.bgColorMenuItem.Text = "Background Color";
             // 
-            // pixelToolStripMenu
+            // brightnessMenuItem
             // 
-            this.pixelToolStripMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mosaicToolStripMenuItem});
-            this.pixelToolStripMenu.Name = "pixelToolStripMenu";
-            this.pixelToolStripMenu.Size = new System.Drawing.Size(130, 22);
-            this.pixelToolStripMenu.Text = "Pixelate";
+            this.brightnessMenuItem.Name = "brightnessMenuItem";
+            this.brightnessMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.brightnessMenuItem.Text = "Brightness";
             // 
-            // mosaicToolStripMenuItem
+            // detectEdgesMenuItem
             // 
-            this.mosaicToolStripMenuItem.Name = "mosaicToolStripMenuItem";
-            this.mosaicToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.mosaicToolStripMenuItem.Text = "Mosaic";
-            this.mosaicToolStripMenuItem.Click += new System.EventHandler(this.TestClick);
+            this.detectEdgesMenuItem.Name = "detectEdgesMenuItem";
+            this.detectEdgesMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.detectEdgesMenuItem.Text = "Detect Edges";
+            // 
+            // entropyCropMenuItem
+            // 
+            this.entropyCropMenuItem.Name = "entropyCropMenuItem";
+            this.entropyCropMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.entropyCropMenuItem.Text = "Entropy Crop";
+            // 
+            // filterMenuItem
+            // 
+            this.filterMenuItem.Name = "filterMenuItem";
+            this.filterMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.filterMenuItem.Text = "Filter";
+            // 
+            // gaussBlurMenuItem
+            // 
+            this.gaussBlurMenuItem.Name = "gaussBlurMenuItem";
+            this.gaussBlurMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.gaussBlurMenuItem.Text = "Gaussian Blur";
+            // 
+            // gaussSharpenMenuItem
+            // 
+            this.gaussSharpenMenuItem.Name = "gaussSharpenMenuItem";
+            this.gaussSharpenMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.gaussSharpenMenuItem.Text = "Gaussian Sharpen";
+            // 
+            // hueMenuItem
+            // 
+            this.hueMenuItem.Name = "hueMenuItem";
+            this.hueMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.hueMenuItem.Text = "Hue";
+            // 
+            // pixelateMenuItem
+            // 
+            this.pixelateMenuItem.Name = "pixelateMenuItem";
+            this.pixelateMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.pixelateMenuItem.Text = "Pixelate";
+            // 
+            // qualityMenuItem
+            // 
+            this.qualityMenuItem.Name = "qualityMenuItem";
+            this.qualityMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.qualityMenuItem.Text = "Quality";
+            // 
+            // replaceColorMenuItem
+            // 
+            this.replaceColorMenuItem.Name = "replaceColorMenuItem";
+            this.replaceColorMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.replaceColorMenuItem.Text = "Replace Color";
+            // 
+            // cornersMenuItem
+            // 
+            this.cornersMenuItem.Name = "cornersMenuItem";
+            this.cornersMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.cornersMenuItem.Text = "Rounded Corners";
+            // 
+            // saturationMenuItem
+            // 
+            this.saturationMenuItem.Name = "saturationMenuItem";
+            this.saturationMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.saturationMenuItem.Text = "Saturation";
+            // 
+            // tintMenuItem
+            // 
+            this.tintMenuItem.Name = "tintMenuItem";
+            this.tintMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.tintMenuItem.Text = "Tint";
+            // 
+            // vignetteMenuItem
+            // 
+            this.vignetteMenuItem.Name = "vignetteMenuItem";
+            this.vignetteMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.vignetteMenuItem.Text = "Vignette";
             // 
             // ImageFilterView
             // 
@@ -246,13 +341,25 @@ namespace ImageFilterWinForms
         private ToolStripMenuItem undoToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem toolsToolStripMenuItem;
-        private ToolStripMenuItem customizeToolStripMenuItem;
-        private ToolStripMenuItem optionsToolStripMenuItem;
         private ToolStripMenuItem rotateStripMenuItem;
         private ToolStripMenuItem repeatToolStripMenuItem;
-        private ToolStripMenuItem pixelToolStripMenu;
-        private ToolStripMenuItem mosaicToolStripMenuItem;
         private ToolStripMenuItem redoToolStripMenuItem;
+        private ToolStripMenuItem alphaMenuItem;
+        private ToolStripMenuItem bgColorMenuItem;
+        private ToolStripMenuItem brightnessMenuItem;
+        private ToolStripMenuItem detectEdgesMenuItem;
+        private ToolStripMenuItem entropyCropMenuItem;
+        private ToolStripMenuItem filterMenuItem;
+        private ToolStripMenuItem gaussBlurMenuItem;
+        private ToolStripMenuItem gaussSharpenMenuItem;
+        private ToolStripMenuItem hueMenuItem;
+        private ToolStripMenuItem pixelateMenuItem;
+        private ToolStripMenuItem qualityMenuItem;
+        private ToolStripMenuItem replaceColorMenuItem;
+        private ToolStripMenuItem cornersMenuItem;
+        private ToolStripMenuItem saturationMenuItem;
+        private ToolStripMenuItem tintMenuItem;
+        private ToolStripMenuItem vignetteMenuItem;
     }
 }
 
