@@ -1,9 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 using ImageFilterLibrary;
 
+/* TODO:
+ * ALPHA
+ * BACKGROUND_COLOR
+ * BRIGHTNESS
+ * --CONSTRAIN
+ * CONTRAST
+ * DETECT_EDGES
+ * ENTROPY_CROP
+ * FILTER
+ * --FORMAT
+ * GAUSSIAN_BLUR
+ * GAUSSIAN_SHARPEN
+ * HUE
+ * PIXELATE
+ * QUALITY
+ * REPLACE_COLOR
+ * ROTATE
+ * ROUNDED_CORNERS
+ * SATURATION
+ * TINT
+ * VIGNETTE
+ */
+    
 namespace ImageFilterWinForms
 {
     public partial class ImageFilterView : Form
@@ -33,22 +57,17 @@ namespace ImageFilterWinForms
             RefreshImageState();
         }
 
-        private void Rotate90CW(object sender, EventArgs e)
+        private void Rotate(object sender, EventArgs e)
         {
-            int degrees = 90;
+            using var rotateDialog = new InputTextDialog("Rotate", "Angle of rotation in degrees:");
 
-            _state.Rotate(degrees);
-            _lastCommand = new Action(() => _state.Rotate(degrees));
+            if (rotateDialog.ShowDialog() == DialogResult.OK)
+            {
+                var degrees = rotateDialog.Result;
 
-            RefreshImageState();
-        }
-
-        private void Rotate180(object sender, EventArgs e)
-        {
-            int degrees = 180;
-
-            _state.Rotate(degrees);
-            _lastCommand = new Action(() => _state.Rotate(degrees));
+                _state.Rotate(degrees);
+                _lastCommand = new Action(() => _state.Rotate(degrees));
+            }
 
             RefreshImageState();
         }
@@ -65,30 +84,41 @@ namespace ImageFilterWinForms
 
         private void OpenImageClick(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            using OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = @"c:\";
+            openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                openFileDialog.InitialDirectory = @"c:\";
-                openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
-                openFileDialog.FilterIndex = 2;
-                openFileDialog.RestoreDirectory = true;
+                //Get the path of specified file
+                var filePath = openFileDialog.FileName;
 
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                //Create image and display it.
+                try
                 {
-                    //Get the path of specified file
-                    var filePath = openFileDialog.FileName;
-
-                    //Create image and display it.
-                    try
-                    {
-                        var image = new Bitmap(filePath);
-                        _state = new ImageEditorState(image);
-                        RefreshImageState();
-                    }
-                    catch (ArgumentException)
-                    {
-                        MessageBox.Show("Please submit a valid image file type.", "File not found");
-                    }
+                    var image = new Bitmap(filePath);
+                    _state = new ImageEditorState(image);
+                    RefreshImageState();
                 }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Please submit a valid image file type.", "File not found");
+                }
+            }
+        }
+
+        private void SaveImageClick(object sender, EventArgs e)
+        {
+            using SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Image Files(*.JPG;*.BMP;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+            dialog.FilterIndex = 1;
+            dialog.RestoreDirectory = true;
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                _state.Image.Save(dialog.FileName, ImageFormat.Jpeg);
             }
         }
 
