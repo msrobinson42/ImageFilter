@@ -36,17 +36,17 @@
             // 
             // lblPrompt
             // 
-            this.lblPrompt.AutoSize = true;
-            this.lblPrompt.Location = new System.Drawing.Point(34, 43);
+            this.lblPrompt.Location = new System.Drawing.Point(25, 28);
             this.lblPrompt.Name = "lblPrompt";
-            this.lblPrompt.Size = new System.Drawing.Size(38, 15);
+            this.lblPrompt.Size = new System.Drawing.Size(378, 46);
             this.lblPrompt.TabIndex = 0;
             this.lblPrompt.Text = "label1";
+            this.lblPrompt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnConfirm
             // 
             this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConfirm.Location = new System.Drawing.Point(407, 28);
+            this.btnConfirm.Location = new System.Drawing.Point(508, 28);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.TabIndex = 2;
@@ -57,7 +57,7 @@
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(407, 58);
+            this.btnExit.Location = new System.Drawing.Point(508, 58);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 3;
@@ -67,9 +67,9 @@
             // 
             // txtOutput
             // 
-            this.txtOutput.Location = new System.Drawing.Point(292, 40);
+            this.txtOutput.Location = new System.Drawing.Point(409, 40);
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(100, 23);
+            this.txtOutput.Size = new System.Drawing.Size(84, 23);
             this.txtOutput.TabIndex = 1;
             // 
             // InputTextDialog
@@ -78,7 +78,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(511, 108);
+            this.ClientSize = new System.Drawing.Size(597, 108);
             this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnConfirm);

@@ -4,7 +4,7 @@
     {
         public static void GaussianSharpen(this ImageEditorState @this, int size)
         {
-            var newImage = ImageProcessor.Instance.Alpha(@this.Image, size);
+            var newImage = ImageProcessor.Instance.GaussianSharpen(@this.Image, size);
 
             @this.Update(newImage);
         }

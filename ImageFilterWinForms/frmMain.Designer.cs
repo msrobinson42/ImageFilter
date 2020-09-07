@@ -219,96 +219,112 @@ namespace ImageFilterWinForms
             this.alphaMenuItem.Name = "alphaMenuItem";
             this.alphaMenuItem.Size = new System.Drawing.Size(170, 22);
             this.alphaMenuItem.Text = "Alpha";
+            this.alphaMenuItem.Click += new System.EventHandler(this.Alpha);
             // 
             // bgColorMenuItem
             // 
             this.bgColorMenuItem.Name = "bgColorMenuItem";
             this.bgColorMenuItem.Size = new System.Drawing.Size(170, 22);
             this.bgColorMenuItem.Text = "Background Color";
+            this.bgColorMenuItem.Click += new System.EventHandler(this.BackgroundColor);
             // 
             // brightnessMenuItem
             // 
             this.brightnessMenuItem.Name = "brightnessMenuItem";
             this.brightnessMenuItem.Size = new System.Drawing.Size(170, 22);
             this.brightnessMenuItem.Text = "Brightness";
+            this.brightnessMenuItem.Click += new System.EventHandler(this.Brightness);
             // 
             // detectEdgesMenuItem
             // 
             this.detectEdgesMenuItem.Name = "detectEdgesMenuItem";
             this.detectEdgesMenuItem.Size = new System.Drawing.Size(170, 22);
             this.detectEdgesMenuItem.Text = "Detect Edges";
+            this.detectEdgesMenuItem.Click += new System.EventHandler(this.DetectEdges);
             // 
             // entropyCropMenuItem
             // 
             this.entropyCropMenuItem.Name = "entropyCropMenuItem";
             this.entropyCropMenuItem.Size = new System.Drawing.Size(170, 22);
             this.entropyCropMenuItem.Text = "Entropy Crop";
+            this.entropyCropMenuItem.Click += new System.EventHandler(this.EntropyCrop);
             // 
             // filterMenuItem
             // 
             this.filterMenuItem.Name = "filterMenuItem";
             this.filterMenuItem.Size = new System.Drawing.Size(170, 22);
             this.filterMenuItem.Text = "Filter";
+            this.filterMenuItem.Click += new System.EventHandler(this.Filter);
             // 
             // gaussBlurMenuItem
             // 
             this.gaussBlurMenuItem.Name = "gaussBlurMenuItem";
             this.gaussBlurMenuItem.Size = new System.Drawing.Size(170, 22);
             this.gaussBlurMenuItem.Text = "Gaussian Blur";
+            this.gaussBlurMenuItem.Click += new System.EventHandler(this.GaussianBlur);
             // 
             // gaussSharpenMenuItem
             // 
             this.gaussSharpenMenuItem.Name = "gaussSharpenMenuItem";
             this.gaussSharpenMenuItem.Size = new System.Drawing.Size(170, 22);
             this.gaussSharpenMenuItem.Text = "Gaussian Sharpen";
+            this.gaussSharpenMenuItem.Click += new System.EventHandler(this.GaussianSharpen);
             // 
             // hueMenuItem
             // 
             this.hueMenuItem.Name = "hueMenuItem";
             this.hueMenuItem.Size = new System.Drawing.Size(170, 22);
             this.hueMenuItem.Text = "Hue";
+            this.hueMenuItem.Click += new System.EventHandler(this.Hue);
             // 
             // pixelateMenuItem
             // 
             this.pixelateMenuItem.Name = "pixelateMenuItem";
             this.pixelateMenuItem.Size = new System.Drawing.Size(170, 22);
             this.pixelateMenuItem.Text = "Pixelate";
+            this.pixelateMenuItem.Click += new System.EventHandler(this.Pixelate);
             // 
             // qualityMenuItem
             // 
             this.qualityMenuItem.Name = "qualityMenuItem";
             this.qualityMenuItem.Size = new System.Drawing.Size(170, 22);
             this.qualityMenuItem.Text = "Quality";
+            this.qualityMenuItem.Click += new System.EventHandler(this.Quality);
             // 
             // replaceColorMenuItem
             // 
             this.replaceColorMenuItem.Name = "replaceColorMenuItem";
             this.replaceColorMenuItem.Size = new System.Drawing.Size(170, 22);
             this.replaceColorMenuItem.Text = "Replace Color";
+            this.replaceColorMenuItem.Click += new System.EventHandler(this.ReplaceColor);
             // 
             // cornersMenuItem
             // 
             this.cornersMenuItem.Name = "cornersMenuItem";
             this.cornersMenuItem.Size = new System.Drawing.Size(170, 22);
             this.cornersMenuItem.Text = "Rounded Corners";
+            this.cornersMenuItem.Click += new System.EventHandler(this.RoundedCorners);
             // 
             // saturationMenuItem
             // 
             this.saturationMenuItem.Name = "saturationMenuItem";
             this.saturationMenuItem.Size = new System.Drawing.Size(170, 22);
             this.saturationMenuItem.Text = "Saturation";
+            this.saturationMenuItem.Click += new System.EventHandler(this.Saturation);
             // 
             // tintMenuItem
             // 
             this.tintMenuItem.Name = "tintMenuItem";
             this.tintMenuItem.Size = new System.Drawing.Size(170, 22);
             this.tintMenuItem.Text = "Tint";
+            this.tintMenuItem.Click += new System.EventHandler(this.Tint);
             // 
             // vignetteMenuItem
             // 
             this.vignetteMenuItem.Name = "vignetteMenuItem";
             this.vignetteMenuItem.Size = new System.Drawing.Size(170, 22);
             this.vignetteMenuItem.Text = "Vignette";
+            this.vignetteMenuItem.Click += new System.EventHandler(this.Vignette);
             // 
             // ImageFilterView
             // 
