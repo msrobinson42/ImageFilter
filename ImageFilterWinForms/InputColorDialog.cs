@@ -15,6 +15,7 @@ namespace ImageFilterWinForms
         public InputColorDialog(string title, string prompt)
         {
             InitializeComponent();
+
             this.Text = title;
             lblPrompt.Text = prompt;
 

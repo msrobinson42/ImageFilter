@@ -329,8 +329,24 @@ namespace ImageFilterWinForms
             RefreshImageState();
         }
 
-        // TODO: Replace Color -- input color, output color, fuzziness
-        private void ReplaceColor(object sender, EventArgs e) { }
+        private void ReplaceColor(object sender, EventArgs e) 
+        {
+            using var replaceColorDialog = new ReplaceColorDialog(
+                "Replace Color", 
+                "Replaces a target color (before) with a replacement color (after) with some amount of fuzziness:");
+
+            if(replaceColorDialog.ShowDialog() == DialogResult.OK)
+            {
+                var target = replaceColorDialog.TargetColor;
+                var replacement = replaceColorDialog.ReplacementColor;
+                var fuzziness = replaceColorDialog.Fuzziness;
+
+                _state.ReplaceColor(target, replacement, fuzziness);
+                _lastCommand = new Action(() => _state.ReplaceColor(target, replacement, fuzziness));
+            }
+
+            RefreshImageState();
+        }
 
         private void RoundedCorners(object sender, EventArgs e) 
         {
