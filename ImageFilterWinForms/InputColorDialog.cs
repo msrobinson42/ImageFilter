@@ -10,8 +10,16 @@ namespace ImageFilterWinForms
 {
     public partial class InputColorDialog : Form
     {
+        /// <summary>
+        /// Returns the resulting Color object from this dialog form.
+        /// </summary>
         public Color ColorResult { get; private set; } = Color.Red;
 
+        /// <summary>
+        /// Creates a dialog form that will prompt the user for a Color object.
+        /// </summary>
+        /// <param name="title">The title of this particular dialog instance.</param>
+        /// <param name="prompt">The prompt that the user will read when filling out the dialog.</param>
         public InputColorDialog(string title, string prompt)
         {
             InitializeComponent();

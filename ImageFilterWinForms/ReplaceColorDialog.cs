@@ -10,10 +10,26 @@ namespace ImageFilterWinForms
 {
     public partial class ReplaceColorDialog : Form
     {
+        /// <summary>
+        /// Returns the Target Color for the ReplaceColor() method.
+        /// </summary>
         public Color TargetColor { get; private set; }
+
+        /// <summary>
+        /// Returns the Replacement Color for the ReplaceColor() method.
+        /// </summary>
         public Color ReplacementColor { get; private set; }
+
+        /// <summary>
+        /// Returns the amount of fuzziness for the ReplaceColor() method.
+        /// </summary>
         public int Fuzziness { get; private set; }
 
+        /// <summary>
+        /// Creates a form that will prompt the user for all applicable properties for use in the ReplaceColor() process.
+        /// </summary>
+        /// <param name="title">The title of this particular dialog form.</param>
+        /// <param name="prompt">The prompt that the user will read when filling out the dialog.</param>
         public ReplaceColorDialog(string title, string prompt)
         {
             InitializeComponent();

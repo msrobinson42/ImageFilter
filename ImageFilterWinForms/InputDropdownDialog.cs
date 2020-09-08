@@ -12,9 +12,23 @@ namespace ImageFilterWinForms
     {
         private readonly List<T> _options;
 
+        /// <summary>
+        /// Returns the resulting generic filter object from this dialog form.
+        /// </summary>
         public T Result { get; private set; }
+
+        /// <summary>
+        /// Returns a boolean deciding whether or not to perform a greyscale manipulation.
+        /// </summary>
         public bool CheckboxResult { get; private set; } = false;
 
+        /// <summary>
+        /// Creates a dialog form that will prompt the user for a generic filter object.
+        /// </summary>
+        /// <param name="title">The title of the dialog form.</param>
+        /// <param name="prompt">The prompt that the user will read when filling out the form.</param>
+        /// <param name="options">A generic list that the user will choose from.</param>
+        /// <param name="greyscale">An optional parameter for deciding if the subsequent manipulation should be in greyscale.</param>
         public InputDropdownDialog(string title, string prompt, List<T> options, bool greyscale = false)
         {
             InitializeComponent();
