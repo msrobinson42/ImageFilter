@@ -14,8 +14,10 @@ namespace ImageFilterWinForms
         private readonly int _min;
 
         public int Result { get; private set; }
+        public bool CheckboxResult { get; private set; }
 
-        public InputTextDialog(string title, string prompt, int min = -1000, int max = 1000)
+        public InputTextDialog(string title, string prompt, int min = -1000, int max = 1000,
+            bool checkboxOption = false, string checkboxPrompt = "")
         {
             InitializeComponent();
 
@@ -24,36 +26,32 @@ namespace ImageFilterWinForms
 
             _max = max;
             _min = min;
-        }     
 
-        private void GetResult()
-        {
-            int.TryParse(txtOutput.Text, out int result);
-            Result = result;
-        }
-
-        private bool IsWithinRange(int value)
-        {
-            return value >= _min && value <= _max;
+            chkOption.Visible = checkboxOption;
+            chkOption.Text = checkboxPrompt;
         }
 
         private void ConfirmClick(object sender, EventArgs e)
         {
-            GetResult();
-            if (IsWithinRange(Result))
+            var input = txtOutput.Text;
+            if (IsValid(input))
             {
+                Result = int.Parse(input);
                 this.DialogResult = DialogResult.OK;
                 ExitClick(sender, e);
             }
             else
             {
-                MessageBox.Show(this, $"Please enter a value between {_min} and {_max}");
+                MessageBox.Show(this, $"Please enter an integer value between {_min} and {_max}");
             }
         }
 
-        private void ExitClick(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        private bool IsValid(string input) => int.TryParse(input, out int result) && IsWithinRange(result);
+
+        private bool IsWithinRange(int value) => value >= _min && value <= _max;
+
+        private void ExitClick(object sender, EventArgs e) => this.Close();
+
+        private void CheckboxChanged(object sender, EventArgs e) => CheckboxResult = chkOption.Checked;
     }
 }

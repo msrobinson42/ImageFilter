@@ -154,8 +154,21 @@ namespace ImageFilterWinForms
             RefreshImageState();
         }
 
-        //TODO: Background Color -- color
-        private void BackgroundColor(object sender, EventArgs e) { }
+        private void BackgroundColor(object sender, EventArgs e) 
+        {
+            using var colorDialog = new InputColorDialog(
+                "Background Color", "The color to paint the background with:");
+
+            if(colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                var color = colorDialog.ColorResult;
+
+                _state.BackgroundColor(color);
+                _lastCommand = new Action(() => _state.BackgroundColor(color));
+            }
+
+            RefreshImageState();
+        }
 
         private void Brightness(object sender, EventArgs e) 
         {
@@ -231,8 +244,23 @@ namespace ImageFilterWinForms
             RefreshImageState();
         }
 
-        //TODO: Hue -- color + checkbox
-        private void Hue(object sender, EventArgs e) { }
+        private void Hue(object sender, EventArgs e) 
+        {
+            using var hueDialog = new InputTextDialog(
+                "Hue", "The angle (0 - 360) by which to alter the image's hue.",
+                0, 360, true, "Rotate");
+
+            if(hueDialog.ShowDialog() == DialogResult.OK)
+            {
+                var degrees = hueDialog.Result;
+                var rotate = hueDialog.CheckboxResult;
+
+                _state.Hue(degrees, rotate);
+                _lastCommand = new Action(() => _state.Hue(degrees, rotate));
+            }
+
+            RefreshImageState();
+        }
 
         private void Pixelate(object sender, EventArgs e) 
         {
@@ -302,11 +330,37 @@ namespace ImageFilterWinForms
             RefreshImageState();
         }
 
-        // TODO: Tint -- color
-        private void Tint(object sender, EventArgs e) { }
+        private void Tint(object sender, EventArgs e) 
+        {
+            using var tintDialog = new InputColorDialog(
+                "Tint", "The color to tint the image with:");
 
-        // TODO: Vignette -- color
-        private void Vignette(object sender, EventArgs e) { }
+            if (tintDialog.ShowDialog() == DialogResult.OK)
+            {
+                var color = tintDialog.ColorResult;
+
+                _state.Tint(color);
+                _lastCommand = new Action(() => _state.Tint(color));
+            }
+
+            RefreshImageState();
+        }
+
+        private void Vignette(object sender, EventArgs e) 
+        {
+            using var vignetteDialog = new InputColorDialog(
+                "Vignette", "The color to vignette the image with:");
+
+            if (vignetteDialog.ShowDialog() == DialogResult.OK)
+            {
+                var color = vignetteDialog.ColorResult;
+
+                _state.Vignette(color);
+                _lastCommand = new Action(() => _state.Vignette(color));
+            }
+
+            RefreshImageState();
+        }
 
         #endregion
 

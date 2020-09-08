@@ -32,6 +32,7 @@
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.txtOutput = new System.Windows.Forms.TextBox();
+            this.chkOption = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblPrompt
@@ -71,13 +72,26 @@
             this.txtOutput.Size = new System.Drawing.Size(84, 23);
             this.txtOutput.TabIndex = 1;
             // 
+            // chkOption
+            // 
+            this.chkOption.AutoSize = true;
+            this.chkOption.Location = new System.Drawing.Point(409, 69);
+            this.chkOption.Name = "chkOption";
+            this.chkOption.Size = new System.Drawing.Size(83, 19);
+            this.chkOption.TabIndex = 4;
+            this.chkOption.Text = "checkBox1";
+            this.chkOption.UseVisualStyleBackColor = true;
+            this.chkOption.Visible = false;
+            this.chkOption.CheckedChanged += new System.EventHandler(this.CheckboxChanged);
+            // 
             // InputTextDialog
             // 
             this.AcceptButton = this.btnConfirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(597, 108);
+            this.ClientSize = new System.Drawing.Size(599, 106);
+            this.Controls.Add(this.chkOption);
             this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnConfirm);
@@ -96,5 +110,6 @@
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.TextBox txtOutput;
+        private System.Windows.Forms.CheckBox chkOption;
     }
 }
