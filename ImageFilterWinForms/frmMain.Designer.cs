@@ -57,7 +57,6 @@ namespace ImageFilterWinForms
             this.gaussSharpenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hueMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pixelateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.qualityMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceColorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cornersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saturationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -197,7 +196,6 @@ namespace ImageFilterWinForms
             this.gaussSharpenMenuItem,
             this.hueMenuItem,
             this.pixelateMenuItem,
-            this.qualityMenuItem,
             this.replaceColorMenuItem,
             this.cornersMenuItem,
             this.saturationMenuItem,
@@ -284,13 +282,6 @@ namespace ImageFilterWinForms
             this.pixelateMenuItem.Text = "Pixelate";
             this.pixelateMenuItem.Click += new System.EventHandler(this.Pixelate);
             // 
-            // qualityMenuItem
-            // 
-            this.qualityMenuItem.Name = "qualityMenuItem";
-            this.qualityMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.qualityMenuItem.Text = "Quality";
-            this.qualityMenuItem.Click += new System.EventHandler(this.Quality);
-            // 
             // replaceColorMenuItem
             // 
             this.replaceColorMenuItem.Name = "replaceColorMenuItem";
@@ -370,7 +361,6 @@ namespace ImageFilterWinForms
         private ToolStripMenuItem gaussSharpenMenuItem;
         private ToolStripMenuItem hueMenuItem;
         private ToolStripMenuItem pixelateMenuItem;
-        private ToolStripMenuItem qualityMenuItem;
         private ToolStripMenuItem replaceColorMenuItem;
         private ToolStripMenuItem cornersMenuItem;
         private ToolStripMenuItem saturationMenuItem;

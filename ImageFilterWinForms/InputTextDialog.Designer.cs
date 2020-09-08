@@ -30,7 +30,6 @@
         {
             this.lblPrompt = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.chkOption = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
@@ -46,24 +45,13 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(508, 28);
+            this.btnConfirm.Location = new System.Drawing.Point(508, 40);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.TabIndex = 2;
             this.btnConfirm.Text = "&Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.ConfirmClick);
-            // 
-            // btnExit
-            // 
-            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(508, 58);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 3;
-            this.btnExit.Text = "E&xit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.ExitClick);
             // 
             // txtOutput
             // 
@@ -89,11 +77,9 @@
             this.AcceptButton = this.btnConfirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(599, 106);
             this.Controls.Add(this.chkOption);
             this.Controls.Add(this.txtOutput);
-            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.lblPrompt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -108,7 +94,6 @@
 
         private System.Windows.Forms.Label lblPrompt;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.TextBox txtOutput;
         private System.Windows.Forms.CheckBox chkOption;
     }

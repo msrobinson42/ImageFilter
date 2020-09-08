@@ -38,7 +38,7 @@ namespace ImageFilterWinForms
             {
                 Result = int.Parse(input);
                 this.DialogResult = DialogResult.OK;
-                ExitClick(sender, e);
+                Close();
             }
             else
             {
@@ -49,8 +49,6 @@ namespace ImageFilterWinForms
         private bool IsValid(string input) => int.TryParse(input, out int result) && IsWithinRange(result);
 
         private bool IsWithinRange(int value) => value >= _min && value <= _max;
-
-        private void ExitClick(object sender, EventArgs e) => this.Close();
 
         private void CheckboxChanged(object sender, EventArgs e) => CheckboxResult = chkOption.Checked;
     }

@@ -312,23 +312,6 @@ namespace ImageFilterWinForms
             RefreshImageState();
         }
 
-        //TODO: Maybe remove?
-        private void Quality(object sender, EventArgs e) 
-        {
-            using var qualityDialog = new InputTextDialog(
-                "Quality", "The percentage by which to alter the image's quality.", 0, 100);
-
-            if(qualityDialog.ShowDialog() == DialogResult.OK)
-            {
-                int percentage = qualityDialog.Result;
-
-                _state.Quality(percentage);
-                _lastCommand = new Action(() => _state.Quality(percentage));
-            }
-
-            RefreshImageState();
-        }
-
         private void ReplaceColor(object sender, EventArgs e) 
         {
             using var replaceColorDialog = new ReplaceColorDialog(
