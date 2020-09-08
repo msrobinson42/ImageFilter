@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 using ImageFilterLibrary;
+using ImageProcessor.Imaging.Filters.EdgeDetection;
+using ImageProcessor.Imaging.Filters.Photo;
 
 /* TODO:
  * ALPHA
@@ -27,7 +29,7 @@ using ImageFilterLibrary;
  * TINT
  * VIGNETTE
  */
-    
+
 namespace ImageFilterWinForms
 {
     public partial class ImageFilterView : Form
@@ -187,8 +189,25 @@ namespace ImageFilterWinForms
             RefreshImageState();
         }
         
-        //TODO: Detect Edges -- custom dropdown
-        private void DetectEdges(object sender, EventArgs e) { }
+        private void DetectEdges(object sender, EventArgs e) 
+        {
+            var options = Resources.EdgeFilters;
+
+            using var edgesDialog = new InputDropdownDialog<IEdgeFilter>(
+                "Detect Edges", "The algorithm to detect edges with:",
+                options, true);
+
+            if(edgesDialog.ShowDialog() == DialogResult.OK)
+            {
+                var filter = edgesDialog.Result;
+                var greyscale = edgesDialog.CheckboxResult;
+
+                _state.DetectEdges(filter, greyscale);
+                _lastCommand = new Action(() => _state.DetectEdges(filter, greyscale));
+            }
+
+            RefreshImageState();
+        }
 
         private void EntropyCrop(object sender, EventArgs e) 
         {
@@ -207,8 +226,23 @@ namespace ImageFilterWinForms
             RefreshImageState();
         }
 
-        //TODO: Filter -- custom dropdown
-        private void Filter(object sender, EventArgs e) { }
+        private void Filter(object sender, EventArgs e) 
+        {
+            var options = Resources.PhotoFilters;
+
+            using var filterDialog = new InputDropdownDialog<IMatrixFilter>(
+                "Photo Filter", "The filter to be applied to the image:", options);
+
+            if(filterDialog.ShowDialog() == DialogResult.OK)
+            {
+                var filter = filterDialog.Result;
+
+                _state.Filter(filter);
+                _lastCommand = new Action(() => _state.Filter(filter));
+            }
+
+            RefreshImageState();
+        }
 
         //TODO: Large Performance Calculation
         private void GaussianBlur(object sender, EventArgs e) 
