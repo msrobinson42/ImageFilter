@@ -180,7 +180,7 @@ namespace ImageFilterWinForms
         private void EntropyCrop(object sender, EventArgs e) 
         {
             using var entropyCropDialog = new InputTextDialog(
-                "Entropy Crop", "The threshold to control the entropy detection level:", 
+                "Entropy Crop", "The threshold (0 to 255) to control the entropy detection level:", 
                     0, 255);
 
             if(entropyCropDialog.ShowDialog() == DialogResult.OK)
@@ -250,6 +250,7 @@ namespace ImageFilterWinForms
             RefreshImageState();
         }
 
+        //TODO: Maybe remove?
         private void Quality(object sender, EventArgs e) 
         {
             using var qualityDialog = new InputTextDialog(
@@ -266,13 +267,13 @@ namespace ImageFilterWinForms
             RefreshImageState();
         }
 
-        // TODO: Replace Color -- custom dialog
+        // TODO: Replace Color -- input color, output color, fuzziness
         private void ReplaceColor(object sender, EventArgs e) { }
 
         private void RoundedCorners(object sender, EventArgs e) 
         {
             using var cornersDialog = new InputTextDialog(
-                "Rounded Corners", "The radius at which the corner will be rounded:", 0);
+                "Rounded Corners", "The radius at which the corner will be rounded:", 1);
 
             if(cornersDialog.ShowDialog() == DialogResult.OK)
             {

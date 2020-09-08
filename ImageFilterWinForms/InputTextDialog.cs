@@ -34,19 +34,20 @@ namespace ImageFilterWinForms
 
         private bool IsWithinRange(int value)
         {
-            return value > _min && value < _max;
+            return value >= _min && value <= _max;
         }
 
         private void ConfirmClick(object sender, EventArgs e)
         {
             GetResult();
-            if(IsWithinRange(Result))
+            if (IsWithinRange(Result))
             {
+                this.DialogResult = DialogResult.OK;
                 ExitClick(sender, e);
             }
             else
             {
-                MessageBox.Show($"Please Reenter a value between {_min} and {_max}");
+                MessageBox.Show(this, $"Please enter a value between {_min} and {_max}");
             }
         }
 

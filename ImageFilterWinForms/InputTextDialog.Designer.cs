@@ -45,7 +45,6 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConfirm.Location = new System.Drawing.Point(508, 28);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
