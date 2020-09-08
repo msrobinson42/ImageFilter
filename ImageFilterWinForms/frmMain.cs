@@ -7,29 +7,6 @@ using ImageFilterLibrary;
 using ImageProcessor.Imaging.Filters.EdgeDetection;
 using ImageProcessor.Imaging.Filters.Photo;
 
-/* TODO:
- * ALPHA
- * BACKGROUND_COLOR
- * BRIGHTNESS
- * --CONSTRAIN
- * CONTRAST
- * DETECT_EDGES
- * ENTROPY_CROP
- * FILTER
- * --FORMAT
- * GAUSSIAN_BLUR
- * GAUSSIAN_SHARPEN
- * HUE
- * PIXELATE
- * QUALITY
- * REPLACE_COLOR
- * ROTATE
- * ROUNDED_CORNERS
- * SATURATION
- * TINT
- * VIGNETTE
- */
-
 namespace ImageFilterWinForms
 {
     public partial class ImageFilterView : Form
