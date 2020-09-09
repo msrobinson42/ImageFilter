@@ -4,10 +4,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+//Holds static resources for UI implementation of
+// the Filter and DetectEdge methods.
+
 namespace ImageFilterLibrary
 {
     public static class Resources
     {
+        /// <summary>
+        /// Holds object instantations of all possible IEdgeFilter concretions.
+        /// </summary>
         public static List<IEdgeFilter> EdgeFilters { get; } = new List<IEdgeFilter>
         {
             new KayyaliEdgeFilter(),
@@ -21,6 +27,9 @@ namespace ImageFilterLibrary
             new SobelEdgeFilter()
         };
 
+        /// <summary>
+        /// Holds object instantiations of all possible IMatrixFilter concretions.
+        /// </summary>
         public static List<IMatrixFilter> PhotoFilters { get; } = new List<IMatrixFilter>
         {
             MatrixFilters.BlackWhite,
