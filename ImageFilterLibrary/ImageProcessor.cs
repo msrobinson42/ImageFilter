@@ -170,6 +170,24 @@ namespace ImageFilterLibrary
         }
 
         /// <summary>
+        /// Performs the Flip effect from the ImageProcessor library.
+        /// </summary>
+        /// <param name="image">The image with which to apply the effect.</param>
+        /// <param name="verticalFlip">Determines if the flip should be vertical or horizontal.</param>
+        /// <returns>A new image with the effect applied.</returns>
+        public Image Flip(Image image, bool verticalFlip)
+        {
+            using var factory = new ImageFactory();
+
+            factory.Load(image);
+            factory.Flip(verticalFlip);
+
+            var result = factory.Image;
+
+            return new Bitmap(result);
+        }
+
+        /// <summary>
         /// Performs the Format effect from the ImageProcessor library.
         /// </summary>
         /// <param name="image">The image with which to apply the effect.</param>
