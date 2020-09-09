@@ -46,29 +46,29 @@ namespace ImageFilterWinForms
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.repeatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flipMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotateStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.alphaMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bgColorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.brightnessMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.detectEdgesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filterMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contrastMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saturationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.hueMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tintMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.gaussBlurMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gaussSharpenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hueMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pixelateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.replaceColorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cornersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saturationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tintMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vignetteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.flipMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contrastMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.detectEdgesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pixelateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.bgColorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replaceColorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.cornersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vignetteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
@@ -219,12 +219,24 @@ namespace ImageFilterWinForms
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
+            // flipMenuItem
+            // 
+            this.flipMenuItem.Name = "flipMenuItem";
+            this.flipMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.flipMenuItem.Text = "Flip";
+            this.flipMenuItem.Click += new System.EventHandler(this.Flip);
+            // 
             // rotateStripMenuItem
             // 
             this.rotateStripMenuItem.Name = "rotateStripMenuItem";
             this.rotateStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.rotateStripMenuItem.Text = "Rotate";
             this.rotateStripMenuItem.Click += new System.EventHandler(this.Rotate);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(167, 6);
             // 
             // alphaMenuItem
             // 
@@ -233,13 +245,6 @@ namespace ImageFilterWinForms
             this.alphaMenuItem.Text = "Alpha";
             this.alphaMenuItem.Click += new System.EventHandler(this.Alpha);
             // 
-            // bgColorMenuItem
-            // 
-            this.bgColorMenuItem.Name = "bgColorMenuItem";
-            this.bgColorMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.bgColorMenuItem.Text = "Background Color";
-            this.bgColorMenuItem.Click += new System.EventHandler(this.BackgroundColor);
-            // 
             // brightnessMenuItem
             // 
             this.brightnessMenuItem.Name = "brightnessMenuItem";
@@ -247,19 +252,43 @@ namespace ImageFilterWinForms
             this.brightnessMenuItem.Text = "Brightness";
             this.brightnessMenuItem.Click += new System.EventHandler(this.Brightness);
             // 
-            // detectEdgesMenuItem
+            // contrastMenuItem
             // 
-            this.detectEdgesMenuItem.Name = "detectEdgesMenuItem";
-            this.detectEdgesMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.detectEdgesMenuItem.Text = "Detect Edges";
-            this.detectEdgesMenuItem.Click += new System.EventHandler(this.DetectEdges);
+            this.contrastMenuItem.Name = "contrastMenuItem";
+            this.contrastMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.contrastMenuItem.Text = "Contrast";
+            this.contrastMenuItem.Click += new System.EventHandler(this.Contrast);
             // 
-            // filterMenuItem
+            // saturationMenuItem
             // 
-            this.filterMenuItem.Name = "filterMenuItem";
-            this.filterMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.filterMenuItem.Text = "Filter";
-            this.filterMenuItem.Click += new System.EventHandler(this.Filter);
+            this.saturationMenuItem.Name = "saturationMenuItem";
+            this.saturationMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.saturationMenuItem.Text = "Saturation";
+            this.saturationMenuItem.Click += new System.EventHandler(this.Saturation);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(167, 6);
+            // 
+            // hueMenuItem
+            // 
+            this.hueMenuItem.Name = "hueMenuItem";
+            this.hueMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.hueMenuItem.Text = "Hue";
+            this.hueMenuItem.Click += new System.EventHandler(this.Hue);
+            // 
+            // tintMenuItem
+            // 
+            this.tintMenuItem.Name = "tintMenuItem";
+            this.tintMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.tintMenuItem.Text = "Tint";
+            this.tintMenuItem.Click += new System.EventHandler(this.Tint);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(167, 6);
             // 
             // gaussBlurMenuItem
             // 
@@ -275,12 +304,24 @@ namespace ImageFilterWinForms
             this.gaussSharpenMenuItem.Text = "Gaussian Sharpen";
             this.gaussSharpenMenuItem.Click += new System.EventHandler(this.GaussianSharpen);
             // 
-            // hueMenuItem
+            // toolStripSeparator6
             // 
-            this.hueMenuItem.Name = "hueMenuItem";
-            this.hueMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.hueMenuItem.Text = "Hue";
-            this.hueMenuItem.Click += new System.EventHandler(this.Hue);
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(167, 6);
+            // 
+            // detectEdgesMenuItem
+            // 
+            this.detectEdgesMenuItem.Name = "detectEdgesMenuItem";
+            this.detectEdgesMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.detectEdgesMenuItem.Text = "Detect Edges";
+            this.detectEdgesMenuItem.Click += new System.EventHandler(this.DetectEdges);
+            // 
+            // filterMenuItem
+            // 
+            this.filterMenuItem.Name = "filterMenuItem";
+            this.filterMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.filterMenuItem.Text = "Filter";
+            this.filterMenuItem.Click += new System.EventHandler(this.Filter);
             // 
             // pixelateMenuItem
             // 
@@ -289,12 +330,29 @@ namespace ImageFilterWinForms
             this.pixelateMenuItem.Text = "Pixelate";
             this.pixelateMenuItem.Click += new System.EventHandler(this.Pixelate);
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(167, 6);
+            // 
+            // bgColorMenuItem
+            // 
+            this.bgColorMenuItem.Name = "bgColorMenuItem";
+            this.bgColorMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.bgColorMenuItem.Text = "Background Color";
+            this.bgColorMenuItem.Click += new System.EventHandler(this.BackgroundColor);
+            // 
             // replaceColorMenuItem
             // 
             this.replaceColorMenuItem.Name = "replaceColorMenuItem";
             this.replaceColorMenuItem.Size = new System.Drawing.Size(170, 22);
             this.replaceColorMenuItem.Text = "Replace Color";
             this.replaceColorMenuItem.Click += new System.EventHandler(this.ReplaceColor);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(167, 6);
             // 
             // cornersMenuItem
             // 
@@ -303,68 +361,12 @@ namespace ImageFilterWinForms
             this.cornersMenuItem.Text = "Rounded Corners";
             this.cornersMenuItem.Click += new System.EventHandler(this.RoundedCorners);
             // 
-            // saturationMenuItem
-            // 
-            this.saturationMenuItem.Name = "saturationMenuItem";
-            this.saturationMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.saturationMenuItem.Text = "Saturation";
-            this.saturationMenuItem.Click += new System.EventHandler(this.Saturation);
-            // 
-            // tintMenuItem
-            // 
-            this.tintMenuItem.Name = "tintMenuItem";
-            this.tintMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.tintMenuItem.Text = "Tint";
-            this.tintMenuItem.Click += new System.EventHandler(this.Tint);
-            // 
             // vignetteMenuItem
             // 
             this.vignetteMenuItem.Name = "vignetteMenuItem";
             this.vignetteMenuItem.Size = new System.Drawing.Size(170, 22);
             this.vignetteMenuItem.Text = "Vignette";
             this.vignetteMenuItem.Click += new System.EventHandler(this.Vignette);
-            // 
-            // flipMenuItem
-            // 
-            this.flipMenuItem.Name = "flipMenuItem";
-            this.flipMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.flipMenuItem.Text = "Flip";
-            // 
-            // contrastMenuItem
-            // 
-            this.contrastMenuItem.Name = "contrastMenuItem";
-            this.contrastMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.contrastMenuItem.Text = "Contrast";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(167, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(167, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(167, 6);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(167, 6);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(167, 6);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(167, 6);
             // 
             // ImageFilterView
             // 

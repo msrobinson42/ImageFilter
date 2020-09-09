@@ -43,5 +43,14 @@ namespace ImageFilterLibrary
             MatrixFilters.Polaroid,
             MatrixFilters.Sepia
         };
+
+        /// <summary>
+        /// Holds information for all possible Flip values.
+        /// </summary>
+        public static List<string> FlipValues { get; } = new List<string>
+        {
+            "horizontal",
+            "vertical"
+        };
     }
 }
