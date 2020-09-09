@@ -6,6 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+//Displays a unique Dialog for the
+// Replace Color effect.
+//A general runtime solution could
+// not be easily implemented.
+
 namespace ImageFilterWinForms
 {
     public partial class ReplaceColorDialog : Form

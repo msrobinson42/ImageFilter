@@ -6,6 +6,10 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+//Displays a runtime determined Dialog for
+// image processing effects that require
+// a choice from a selection of finite options.
+
 namespace ImageFilterWinForms
 {
     public partial class InputDropdownDialog<T> : Form
