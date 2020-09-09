@@ -49,8 +49,8 @@ namespace ImageFilterLibrary
         /// </summary>
         public static List<string> FlipValues { get; } = new List<string>
         {
-            "horizontal",
-            "vertical"
+            "Horizontal",
+            "Vertical"
         };
     }
 }

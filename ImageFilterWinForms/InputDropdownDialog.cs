@@ -44,7 +44,10 @@ namespace ImageFilterWinForms
         {
             foreach (var option in _options)
             {
-                cboOptions.Items.Add(option.GetType().Name);
+                if (option is string)
+                    cboOptions.Items.Add(option);
+                else
+                    cboOptions.Items.Add(option.GetType().Name);
             }
 
             cboOptions.SelectedIndex = 0;

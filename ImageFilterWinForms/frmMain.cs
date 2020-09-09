@@ -372,7 +372,9 @@ namespace ImageFilterWinForms
 
             if(flipDialog.ShowDialog() == DialogResult.OK)
             {
-                var verticalFlip = flipDialog.Result.Equals("vertical");
+                var verticalFlip = flipDialog.Result
+                    .ToLower()
+                    .Equals("vertical");
 
                 _state.Flip(verticalFlip);
                 _lastCommand = new Action(() => _state.Flip(verticalFlip));
