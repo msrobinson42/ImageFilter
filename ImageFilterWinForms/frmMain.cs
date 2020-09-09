@@ -193,23 +193,6 @@ namespace ImageFilterWinForms
             RefreshImageState();
         }
 
-        private void EntropyCrop(object sender, EventArgs e) 
-        {
-            using var entropyCropDialog = new InputTextDialog(
-                "Entropy Crop", "The threshold (0 to 255) to control the entropy detection level:", 
-                    0, 255);
-
-            if(entropyCropDialog.ShowDialog() == DialogResult.OK)
-            {
-                byte threshold = (byte)entropyCropDialog.Result;
-
-                _state.EntropyCrop(threshold);
-                _lastCommand = new Action(() => _state.EntropyCrop(threshold));
-            }
-
-            RefreshImageState();
-        }
-
         private void Filter(object sender, EventArgs e) 
         {
             var options = Resources.PhotoFilters;

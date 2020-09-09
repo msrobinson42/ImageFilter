@@ -51,7 +51,6 @@ namespace ImageFilterWinForms
             this.bgColorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.brightnessMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detectEdgesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entropyCropMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gaussBlurMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gaussSharpenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,6 +61,14 @@ namespace ImageFilterWinForms
             this.saturationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tintMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vignetteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flipMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contrastMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
@@ -185,21 +192,28 @@ namespace ImageFilterWinForms
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.flipMenuItem,
             this.rotateStripMenuItem,
+            this.toolStripSeparator2,
             this.alphaMenuItem,
-            this.bgColorMenuItem,
             this.brightnessMenuItem,
-            this.detectEdgesMenuItem,
-            this.entropyCropMenuItem,
-            this.filterMenuItem,
+            this.contrastMenuItem,
+            this.saturationMenuItem,
+            this.toolStripSeparator4,
+            this.hueMenuItem,
+            this.tintMenuItem,
+            this.toolStripSeparator5,
             this.gaussBlurMenuItem,
             this.gaussSharpenMenuItem,
-            this.hueMenuItem,
+            this.toolStripSeparator6,
+            this.detectEdgesMenuItem,
+            this.filterMenuItem,
             this.pixelateMenuItem,
+            this.toolStripSeparator7,
+            this.bgColorMenuItem,
             this.replaceColorMenuItem,
+            this.toolStripSeparator8,
             this.cornersMenuItem,
-            this.saturationMenuItem,
-            this.tintMenuItem,
             this.vignetteMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
@@ -239,13 +253,6 @@ namespace ImageFilterWinForms
             this.detectEdgesMenuItem.Size = new System.Drawing.Size(170, 22);
             this.detectEdgesMenuItem.Text = "Detect Edges";
             this.detectEdgesMenuItem.Click += new System.EventHandler(this.DetectEdges);
-            // 
-            // entropyCropMenuItem
-            // 
-            this.entropyCropMenuItem.Name = "entropyCropMenuItem";
-            this.entropyCropMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.entropyCropMenuItem.Text = "Entropy Crop";
-            this.entropyCropMenuItem.Click += new System.EventHandler(this.EntropyCrop);
             // 
             // filterMenuItem
             // 
@@ -317,6 +324,48 @@ namespace ImageFilterWinForms
             this.vignetteMenuItem.Text = "Vignette";
             this.vignetteMenuItem.Click += new System.EventHandler(this.Vignette);
             // 
+            // flipMenuItem
+            // 
+            this.flipMenuItem.Name = "flipMenuItem";
+            this.flipMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.flipMenuItem.Text = "Flip";
+            // 
+            // contrastMenuItem
+            // 
+            this.contrastMenuItem.Name = "contrastMenuItem";
+            this.contrastMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.contrastMenuItem.Text = "Contrast";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(167, 6);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(167, 6);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(167, 6);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(167, 6);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(167, 6);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(167, 6);
+            // 
             // ImageFilterView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -355,7 +404,6 @@ namespace ImageFilterWinForms
         private ToolStripMenuItem bgColorMenuItem;
         private ToolStripMenuItem brightnessMenuItem;
         private ToolStripMenuItem detectEdgesMenuItem;
-        private ToolStripMenuItem entropyCropMenuItem;
         private ToolStripMenuItem filterMenuItem;
         private ToolStripMenuItem gaussBlurMenuItem;
         private ToolStripMenuItem gaussSharpenMenuItem;
@@ -366,6 +414,14 @@ namespace ImageFilterWinForms
         private ToolStripMenuItem saturationMenuItem;
         private ToolStripMenuItem tintMenuItem;
         private ToolStripMenuItem vignetteMenuItem;
+        private ToolStripMenuItem flipMenuItem;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem contrastMenuItem;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripSeparator toolStripSeparator5;
+        private ToolStripSeparator toolStripSeparator6;
+        private ToolStripSeparator toolStripSeparator7;
+        private ToolStripSeparator toolStripSeparator8;
     }
 }
 
