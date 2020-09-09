@@ -32,7 +32,7 @@
             this.picAfterColor = new System.Windows.Forms.PictureBox();
             this.btnBeforeColor = new System.Windows.Forms.Button();
             this.btnAfterColor = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblPrompt = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.lblFuzziness = new System.Windows.Forms.Label();
             this.txtFuzziness = new System.Windows.Forms.TextBox();
@@ -82,13 +82,13 @@
             this.btnAfterColor.UseVisualStyleBackColor = true;
             this.btnAfterColor.Click += new System.EventHandler(this.AfterColorclick);
             // 
-            // label1
+            // lblPrompt
             // 
-            this.label1.Location = new System.Drawing.Point(29, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(348, 33);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
+            this.lblPrompt.Location = new System.Drawing.Point(29, 19);
+            this.lblPrompt.Name = "lblPrompt";
+            this.lblPrompt.Size = new System.Drawing.Size(348, 33);
+            this.lblPrompt.TabIndex = 4;
+            this.lblPrompt.Text = "label1";
             // 
             // btnConfirm
             // 
@@ -126,7 +126,7 @@
             this.Controls.Add(this.txtFuzziness);
             this.Controls.Add(this.lblFuzziness);
             this.Controls.Add(this.btnConfirm);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPrompt);
             this.Controls.Add(this.btnAfterColor);
             this.Controls.Add(this.btnBeforeColor);
             this.Controls.Add(this.picAfterColor);
@@ -147,7 +147,7 @@
         private System.Windows.Forms.PictureBox picAfterColor;
         private System.Windows.Forms.Button btnBeforeColor;
         private System.Windows.Forms.Button btnAfterColor;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPrompt;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Label lblFuzziness;
         private System.Windows.Forms.TextBox txtFuzziness;
