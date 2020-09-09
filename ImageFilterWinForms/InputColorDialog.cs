@@ -40,7 +40,6 @@ namespace ImageFilterWinForms
                 AllowFullOpen = true,
                 FullOpen = true,
                 AnyColor = true,
-                ShowHelp = true
             };
 
             if (colorDialog.ShowDialog() == DialogResult.OK)
