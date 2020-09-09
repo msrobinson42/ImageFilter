@@ -101,6 +101,8 @@ namespace ImageFilterWinForms
             else
             {
                 MessageBox.Show("Please double check and enter valid inputs into the controls.", "Error");
+                txtFuzziness.Focus();
+                txtFuzziness.SelectAll();
             }
         }
 

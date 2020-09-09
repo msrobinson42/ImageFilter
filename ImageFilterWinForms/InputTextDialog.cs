@@ -65,6 +65,8 @@ namespace ImageFilterWinForms
             else
             {
                 MessageBox.Show(this, $"Please enter an integer value between {_min} and {_max}");
+                txtOutput.Focus();
+                txtOutput.SelectAll();
             }
         }
 
