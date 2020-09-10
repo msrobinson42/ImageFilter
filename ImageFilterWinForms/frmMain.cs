@@ -7,10 +7,6 @@ using ImageFilterLibrary;
 using ImageProcessor.Imaging.Filters.EdgeDetection;
 using ImageProcessor.Imaging.Filters.Photo;
 
-//The Winforms View for the application.
-//Holds click event handlers for all photo-manipulation effects
-// as well as baseline Open/Save/Close and Undo/Redo functionality.
-
 namespace ImageFilterWinForms
 {
     public partial class ImageFilterView : Form
@@ -380,7 +376,5 @@ namespace ImageFilterWinForms
         }
 
         #endregion
-
-
     }
 }
