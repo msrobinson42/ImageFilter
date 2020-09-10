@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 
+//Roger: This class is unused in the application.
+// It is an experiment to convert my ImageEditorState machine
+// to a more Generic implementation.
+// It is functional and would work, but the Generic 
+// implementation is unneeded for this application.
+// - Zach
+
 namespace ImageFilterLibrary
 {
     public class DisposableStateMachine<T> where T : IDisposable

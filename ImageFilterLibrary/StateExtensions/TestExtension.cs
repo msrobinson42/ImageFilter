@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
+//An extraneous class used for testing during development.
+
 namespace ImageFilterLibrary
 {
     public static class TestExtension

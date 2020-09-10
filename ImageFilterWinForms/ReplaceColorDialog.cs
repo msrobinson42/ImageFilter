@@ -6,6 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+//Displays a unique Dialog for the
+// Replace Color effect.
+//A general runtime solution could
+// not be easily implemented.
+
 namespace ImageFilterWinForms
 {
     public partial class ReplaceColorDialog : Form
@@ -33,13 +38,22 @@ namespace ImageFilterWinForms
         public ReplaceColorDialog(string title, string prompt)
         {
             InitializeComponent();
+
+            this.Text = title;
+            lblPrompt.Text = prompt;
         }
 
         private bool IsValid()
         {
             return TargetColor != null 
                    && ReplacementColor != null
-                   && int.TryParse(txtFuzziness.Text, out _);
+                   && int.TryParse(txtFuzziness.Text, out int fuzziness)
+                   && IsWithinRange(fuzziness);
+        }
+
+        private bool IsWithinRange(int fuzziness)
+        {
+            return fuzziness >= 0 && fuzziness <= 128;
         }
 
         private void BeforeColorClick(object sender, EventArgs e)
@@ -87,6 +101,8 @@ namespace ImageFilterWinForms
             else
             {
                 MessageBox.Show("Please double check and enter valid inputs into the controls.", "Error");
+                txtFuzziness.Focus();
+                txtFuzziness.SelectAll();
             }
         }
 

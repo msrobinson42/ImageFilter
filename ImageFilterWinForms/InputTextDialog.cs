@@ -6,6 +6,12 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+//Displays a runtime determined Dialog for
+// image processing effects that require
+// a single typed value from the user.
+//Also handles related checkbox inputs
+// for effects such as Hue.
+
 namespace ImageFilterWinForms
 {
     public partial class InputTextDialog : Form
@@ -59,6 +65,8 @@ namespace ImageFilterWinForms
             else
             {
                 MessageBox.Show(this, $"Please enter an integer value between {_min} and {_max}");
+                txtOutput.Focus();
+                txtOutput.SelectAll();
             }
         }
 

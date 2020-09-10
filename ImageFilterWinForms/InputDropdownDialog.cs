@@ -6,6 +6,10 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+//Displays a runtime determined Dialog for
+// image processing effects that require
+// a choice from a selection of finite options.
+
 namespace ImageFilterWinForms
 {
     public partial class InputDropdownDialog<T> : Form
@@ -44,7 +48,10 @@ namespace ImageFilterWinForms
         {
             foreach (var option in _options)
             {
-                cboOptions.Items.Add(option.GetType().Name);
+                if (option is string)
+                    cboOptions.Items.Add(option);
+                else
+                    cboOptions.Items.Add(option.GetType().Name);
             }
 
             cboOptions.SelectedIndex = 0;

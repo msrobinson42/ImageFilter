@@ -6,6 +6,10 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+//Displays a runtime determined Dialog for
+// image processing effects that require
+// a single color input from the user.
+
 namespace ImageFilterWinForms
 {
     public partial class InputColorDialog : Form
@@ -36,7 +40,6 @@ namespace ImageFilterWinForms
                 AllowFullOpen = true,
                 FullOpen = true,
                 AnyColor = true,
-                ShowHelp = true
             };
 
             if (colorDialog.ShowDialog() == DialogResult.OK)
