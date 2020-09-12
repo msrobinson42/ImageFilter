@@ -1,10 +1,6 @@
-﻿using ImageProcessor;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
-
+﻿
 //An extraneous class used for testing during development.
+//Zach
 
 namespace ImageFilterLibrary
 {

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 // Replace Color effect.
 //A general runtime solution could
 // not be easily implemented.
+//Zach
 
 namespace ImageFilterWinForms
 {

@@ -10,6 +10,7 @@ using ImageProcessor.Imaging.Filters.Photo;
 //The Winforms View for the application.
 //Holds click event handlers for all photo-manipulation effects
 // as well as baseline Open/Save/Close and Undo/Redo functionality.
+//Zach and Leila
 
 namespace ImageFilterWinForms
 {

@@ -5,6 +5,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//Have modified this class to instantiate
+// pass some variables into the main form.
+// Have since modified project where they
+// were not needed.
+//Zach
+
 namespace ImageFilterWinForms
 {
     static class Program

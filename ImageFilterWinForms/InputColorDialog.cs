@@ -9,6 +9,7 @@ using System.Windows.Forms;
 //Displays a runtime determined Dialog for
 // image processing effects that require
 // a single color input from the user.
+//Zach
 
 namespace ImageFilterWinForms
 {

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 // a single typed value from the user.
 //Also handles related checkbox inputs
 // for effects such as Hue.
+//Zach
 
 namespace ImageFilterWinForms
 {

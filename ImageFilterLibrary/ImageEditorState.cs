@@ -6,6 +6,7 @@ using System.Text;
 
 //The state machine for holding all created instances of an Image. 
 // Holds Image stack for Undo and Redo functionality. 
+//Zach
 
 namespace ImageFilterLibrary
 {

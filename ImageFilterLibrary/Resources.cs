@@ -6,6 +6,7 @@ using System.Text;
 
 //Holds static resources for UI implementation of
 // the Filter and DetectEdge methods.
+//Zach
 
 namespace ImageFilterLibrary
 {

@@ -7,6 +7,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
+//Holds a singleton ImageProcessor
+// for use in manipulation the image.
+//Zach
+
 namespace ImageFilterLibrary
 {
     /// <summary>

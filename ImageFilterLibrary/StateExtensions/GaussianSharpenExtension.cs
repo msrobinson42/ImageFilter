@@ -1,4 +1,7 @@
-﻿namespace ImageFilterLibrary
+﻿
+//Leila with Zach review.
+
+namespace ImageFilterLibrary
 {
     public static class GaussianSharpenExtension
     {
