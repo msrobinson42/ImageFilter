@@ -61,4 +61,4 @@ To improve the application, there are likely ways to make the code less mutable.
 * Instead of mutating a "current image" memory location in the ImageEditorState.cs, I could instead return Stack<Image>.First();
 * Implement some asynchronous functionality for when calculations take an abnormally long time (such as Gaussian Blur/Sharpen)
 
-**Zach Robinson*
+**Zach Robinson**
